@@ -452,6 +452,13 @@ function changeBookmarkAddPageCount() {
     return 1;
   })();
 
+  if (!pc) {
+    iframe.width = '100%';
+    iframe.height = '320px';
+    iframe.style.width = '100%';
+    iframe.style.height = '320px';
+  }
+
   if (p == bookmarkAddPageCount) return false;
 
   bookmarkAddPageCount = p;
