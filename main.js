@@ -508,7 +508,10 @@ function searchBoxChange() {
     var searchBox = document.getElementById('inputSearch').value;
     // 空文字の場合は帰す
     if (searchBox == '') {
-      bookmarkViewMode = 'normal';
+      bookmarkViewMode = (() => {
+        if (document.getElementById('radioRandom').checked) return 'random';
+        return 'normal';
+      })();
       loadCount = 0;
       document.getElementById('itemList').innerHTML = null;
       addItem();
