@@ -376,10 +376,18 @@ function createItem(data) {
   })();
   var isR18 = (() => {
     var b = data.tags.some((value) => {
-      return value == 'R-18';
+      return value == 'R-18' || value == 'R-18G';
     });
     if (!b) return 'display: none;';
     return '';
+  })();
+  var r18Text = (() => {
+    if (isR18 != '') return '';
+    var b = data.tags.some((value) => {
+      return value == 'R-18';
+    });
+    if (b) return 'R-18';
+    return 'R-18G';
   })();
   var isUgoku = (() => {
     if (data.ugoku) return '';
@@ -403,7 +411,7 @@ function createItem(data) {
       '        <div>' +
       '          <div style="' + isR18 + '">' +
       '            <div>' +
-      '              <div>R-18</div>' +
+      '              <div>' + r18Text + '</div>' +
       '            </div>' +
       '          </div>' +
       '          <div style="' + isCount + '">' +
