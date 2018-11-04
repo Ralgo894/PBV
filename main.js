@@ -481,7 +481,6 @@ function appendItemToBottom() {
 
     // 一番下までスクロールされたら
     if(remain <= 200) {
-      alert()
       loadCount++;
       addItem();
     }
