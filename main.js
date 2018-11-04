@@ -480,7 +480,8 @@ function appendItemToBottom() {
     var remain = scrollHeight - clientHeight - scrollTop;
 
     // 一番下までスクロールされたら
-    if(remain <= 0) {
+    if(remain <= 200) {
+      alert()
       loadCount++;
       addItem();
     }
