@@ -379,7 +379,7 @@ function createItem(data) {
     '  <a href="https://www.pixiv.net/member_illust.php?mode=medium&illust_id=' + data.id + '">' +
     '    <div>' +
     '      <div class="square"></div>' +
-    '      <div class="image" style="background-image: url(https://i.pximg.net/c/540x540_10_webp/img-master/img/' + data.imageUrl + ');">' +
+    '      <div class="image" style="background-image: url(https://i.pximg.net/c/540x540_70/img-master/img/' + data.imageUrl + ');">' +
     '        <div style="' + isCount + '">' +
     '          <img src="https://s.pximg.net/touch/touch/js/bundle/3aae66ac7716524f2fe9a06e93437786.svg">' +
     '          <span>' + data.count + '</span>' +
