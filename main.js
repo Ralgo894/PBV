@@ -202,12 +202,11 @@ function setEvent() {
     // inputSearch
     element = document.getElementById('inputSearch');
     element.addEventListener('change', () => {
-      bookmarkViewMode = 'search';
       loadCount = 0;
       document.getElementById('itemList').innerHTML = null;
       searchBoxChange()
       .then(() => {
-        console.log(searchData);
+        bookmarkViewMode = 'search';
         addItem();
       });
     }, false);
@@ -519,7 +518,7 @@ function searchBoxChange() {
     // 使う配列
     var arr = [];
 
-    if (bookmarkViewMode == 'random') { arr = randomData; }
+    if (document.getElementById('radioRandom').checked) { arr = randomData; }
     else { arr = bookmarkData; }
 
     var searchTexts = searchBox.replace(/　/g , ' ').split(' ');
