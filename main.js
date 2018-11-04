@@ -54,16 +54,18 @@ var bookmarkData = (() => {
   if (d != null) return d;
   return [];
 })();
+var randomData = [];
+var searchData = [];
+
 var userIcon = (() => {
   var d = JSON.parse(localStorage.getItem('pbvUserData'));
   if (d != null) return d;
   return {};
 })();
 
-var randomData = [];
 var addData = [];
 
-var bookmarkMode = 'normal';
+var bookmarkViewMode = 'normal';
 var loadCount = 0; // 何回目の読み込みか
 var viewCount = 48; // 一回のロードで何枚読み込むか
 var illustLoadMargin = 0; // 読み込む範囲
@@ -74,7 +76,6 @@ var bookmarkAddPageCount = 1;
 var reading = false;
 
 var container;
-
 
 /* == */
 
@@ -158,7 +159,7 @@ function changePage() {
   })();
 
   if (page == 'bookmark') {
-    bookmarkMode = 'normal';
+    bookmarkViewMode = 'normal';
     loadCount = 0;
     addItem();
   }
@@ -179,15 +180,57 @@ function setEvent() {
 
     var element;
 
-    // inputSearch
-    var element = document.getElementById('inputSearch');
-    element.addEventListener('change', () => {
+    // radioNormal
+    element = document.getElementById('radioNormal');
+    element.addEventListener('click', () => {
+      bookmarkViewMode = 'normal';
+      loadCount = 0;
+      document.getElementById('itemList').innerHTML = null;
+      addItem();
+    }, false);
+    // radioRandom
+    element = document.getElementById('radioRandom');
+    element.addEventListener('click', () => {
+      bookmarkViewMode = 'random';
+      loadCount = 0;
+      document.getElementById('itemList').innerHTML = null;
+      createRandomData()
+      .then(() => {
+        addItem();
+      });
+    }, false);
 
+    // inputSearch
+    element = document.getElementById('inputSearch');
+    element.addEventListener('change', () => {
+      bookmarkViewMode = 'search';
+      loadCount = 0;
+      document.getElementById('itemList').innerHTML = null;
+      searchBoxChange()
+      .then(() => {
+        console.log(searchData);
+        addItem();
+      });
+    }, false);
+
+    // inputOr
+    element = document.getElementById('inputOr');
+    element.addEventListener('click', () => {
+      var inputSearch = document.getElementById('inputSearch');
+      if (inputSearch.value != '') inputSearch.value += ' ';
+      inputSearch.value += 'OR ';
+    }, false);
+    // inputNot
+    element = document.getElementById('inputNot');
+    element.addEventListener('click', () => {
+      var inputSearch = document.getElementById('inputSearch');
+      if (inputSearch.value != '') inputSearch.value += ' ';
+      inputSearch.value += 'NOT ';
     }, false);
 
     if (!pc) {
       // moreLoad
-      var element = document.getElementById('moreLoad');
+      element = document.getElementById('moreLoad');
       element.addEventListener('click', () => {
         loadCount++;
         addItem();
@@ -287,30 +330,6 @@ function saveToLocalStorage() {
   localStorage.setItem('pbvUserData', JSON.stringify(userIcon));
 }
 
-function addBookmarkData() {
-  if (bookmarkData.length < 1) return;
-
-  var overIndex = addData.length;
-  for (var i = 0; i < addData.length; i++) {
-    if (addData[i].id == bookmarkData[0].id) {
-      overIndex = i;
-    }
-  }
-  addData.splice(overIndex, addData.length - overIndex);
-  bookmarkData = addData.concat(bookmarkData);
-}
-
-function setUserIconUrl() {
-  if (bookmarkData == []) return;
-  for (key in userIcon) {
-    bookmarkData.forEach((e) => {
-      if (e.userId == key) {
-        e.userIconUrl = userIcon[key];
-      }
-    });
-  }
-}
-
 function getParameter(url) {
   var arg = {};
   var pair = url.split('?')[1].split('&');
@@ -327,7 +346,9 @@ function addItem() {
   for (var i = 0; i < viewCount; i++) {
     var index = i + (loadCount * viewCount);
     var data = (() => {
-      if (bookmarkMode == 'normal') return bookmarkData[index];
+      if (bookmarkViewMode == 'normal') return bookmarkData[index];
+      if (bookmarkViewMode == 'random') return randomData[index];
+      return searchData[index];
     })();
     createItem(data);
   }
@@ -405,13 +426,92 @@ function createItem(data) {
 };
 
 function appendItemToBottom() {
+  var bottomElement = document.querySelector('#itemList .item:last-child');
+  if (!bottomElement) return;
   var screenBottom = (documentElement.scrollTop + documentElement.clientHeight);
-  var lastItemOffset = (document.querySelector('#itemList .item:last-child').offsetTop - documentElement.offsetTop);
+  var lastItemOffset = (bottomElement.offsetTop - documentElement.offsetTop);
 
   if(lastItemOffset < (screenBottom + illustLoadMargin)) {
     loadCount++;
     addItem();
   }
+}
+
+function createRandomData() {
+  return new Promise(function(resolve, reject) {
+    randomData = JSON.parse(JSON.stringify(bookmarkData));
+    for(var i = randomData.length - 1; i > 0; i--){
+      var r = Math.floor(Math.random() * (i + 1));
+      var tmp = randomData[i];
+      randomData[i] = randomData[r];
+      randomData[r] = tmp;
+    }
+    resolve();
+  });
+}
+createRandomData();
+
+function searchBoxChange() {
+  return new Promise(function(resolve, reject) {
+    // 検索用の配列を空にしておく
+    searchData = [];
+    // 検索欄内の文字列
+    var searchBox = document.getElementById('inputSearch').value;
+    // 空文字の場合は帰す
+    if (searchBox == '') {
+      bookmarkViewMode = 'normal';
+      loadCount = 0;
+      document.getElementById('itemList').innerHTML = null;
+      addItem();
+      return;
+    }
+
+    // 使う配列
+    var arr = [];
+
+    if (bookmarkViewMode == 'random') { arr = randomData; }
+    else { arr = bookmarkData; }
+
+    var searchTexts = searchBox.replace(/　/g , ' ').split(' ');
+
+    var condition = [[]];
+    for (var i = 0; i < searchTexts.length; i++) {
+      if (searchTexts[i] != 'AND'
+      && searchTexts[i] != 'OR'
+      && searchTexts[i] != 'NOT'
+    ) {
+      if (searchTexts[i - 1] == 'OR') {
+        condition.push([searchTexts[i]]);
+      }
+      else if (searchTexts[i - 1] == 'NOT') {
+        condition[condition.length - 1].push('-' + searchTexts[i]);
+      }
+      else {
+        condition[condition.length - 1].push(searchTexts[i]);
+      }
+    }
+  }
+
+    var compile = function (cond) {
+      var joinAnd = function (arr) { return '^(?=[\\s\\S]*' + arr.join(')(?=[\\s\\S]*') + ')'; };
+      var joinOr  = function (arr) { return '(?:' + arr.join('|') + ')'; };
+      var escape  = function (str) { return str.replace(/(?=[(){}\[\].*\\^$?])/, '\\'); };
+      var rx = joinOr(cond.map(function(inner) { return joinAnd(inner.map(escape)); }));
+      rx = rx.replace(/=\[\\s\\S\]\*-/g, '![\\s\\S]*');
+      return new RegExp(rx);
+    };
+    var matcher = compile(condition);
+
+    for (var i = 0; i < arr.length; i++) {
+      var testStr = arr[i]['title'] + ' ' + arr[i]['user'] + ' ' + arr[i]['tags'].join();
+
+      if (matcher.test(testStr)) {
+        searchData.push(arr[i]);
+      }
+    }
+
+    resolve();
+  });
 }
 
 /* option */
@@ -536,6 +636,30 @@ function readBookmarkPageData() {
       saveToLocalStorage();
       var but = document.getElementById('bookmarkReadStrat');
       but.click();
+    });
+  }
+}
+
+function addBookmarkData() {
+  if (bookmarkData.length < 1) return;
+
+  var overIndex = addData.length;
+  for (var i = 0; i < addData.length; i++) {
+    if (addData[i].id == bookmarkData[0].id) {
+      overIndex = i;
+    }
+  }
+  addData.splice(overIndex, addData.length - overIndex);
+  bookmarkData = addData.concat(bookmarkData);
+}
+
+function setUserIconUrl() {
+  if (bookmarkData == []) return;
+  for (key in userIcon) {
+    bookmarkData.forEach((e) => {
+      if (e.userId == key) {
+        e.userIconUrl = userIcon[key];
+      }
     });
   }
 }
