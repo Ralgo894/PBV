@@ -672,8 +672,8 @@ function readBookmarkPageData() {
         data.tags = imgElement.getAttribute('data-tags').split(' ');
         addData.unshift(data);
 
-        if (!userData[data.id]) userData[data.id] = {"icon": ""};
-        userData[data.id].name = data.user;
+        if (!userData[data.userId]) userData[data.userId] = {"icon": ""};
+        userData[data.userId].name = data.user;
       }
       catch (e) {
         // console.error(e);
