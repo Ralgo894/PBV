@@ -319,8 +319,14 @@ setEvent();
 function loadToLocalStorage() {
   return new Promise(function(resolve, reject) {
     var data = JSON.parse(localStorage.getItem('pbv'));
-    if (data.bookmark != null) {bookmarkData = data.bookmark;}
-    if (data.user != null) {userData = data.user;}
+    bookmarkData = (() => {
+      if (data.bookmark) return data.bookmark;
+      return [];
+    })();
+    userData = (() => {
+      if (data.user) return data.user;
+      return {};
+    })();
     resolve();
   });
 }
@@ -681,7 +687,7 @@ function readBookmarkPageData() {
         }
       }
       catch (e) {
-        // console.error(e);
+        console.error(e);
       }
     }
   }
@@ -697,7 +703,7 @@ function readBookmarkPageData() {
         };
       }
       catch (e) {
-        // console.error(e);
+        console.error(e);
       }
     }
   }
@@ -781,8 +787,14 @@ function overwriteBookmarkData() {
   try {
     new Promise(function(resolve, reject) {
       data = JSON.parse(optionTextarea.value);
-      bookmarkData = data.bookmark;
-      userData = data.user;
+      bookmarkData = (() => {
+        if (data.bookmark) return data.bookmark;
+        return [];
+      })();
+      userData = (() => {
+        if (data.user) return data.user;
+        return {};
+      })();
       resolve();
     })
     .then(saveToLocalStorage())
@@ -815,8 +827,14 @@ function loadDataWithAjax() {
     try {
       new Promise(function(resolve, reject) {
         var data = JSON.parse(res);
-        bookmarkData = data.bookmark;
-        userData = data.user;
+        bookmarkData = (() => {
+          if (data.bookmark) return data.bookmark;
+          return [];
+        })();
+        userData = (() => {
+          if (data.user) return data.user;
+          return {};
+        })();
         resolve();
       })
       .then(saveToLocalStorage())
