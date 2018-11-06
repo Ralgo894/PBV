@@ -27,41 +27,33 @@ var documentElement = (() => {
 
 var pbvStyle = (() => {
   if (pc) {
-    return '#pbvContainer .flex {display: flex;}#pbvContainer .none {display: none;}#pbvNav .navContents {margin-top: -1px;padding: 13px 16px 16px;font-weight: 700;font-size: 16px;color: #999;text-decoration: none;border-top: 4px solid transparent;-webkit-transition: color .2s;transition: color .2s;}#pbvNav .navContents:hover {color: #333;}#pbvNav .navContents.active {border-top: 4px solid #0096fa;color: #333;}#pbvMenu {margin: 30px 0;padding: 0;}#pbvContainer .mode label {display: block;margin: auto 5px auto 0;cursor: pointer;}#pbvContainer .mode input {cursor: pointer;}#pbvContainer .aBut {display: block;margin: auto 0 auto 5px;padding: 3px 6px;border-radius: 16px;background-color: #eee;color: #666;cursor: pointer;text-align: center;text-decoration: none;}#itemList {margin: 0 -12px -24px;padding: 0;display: flex;flex-wrap: wrap;align-content: flex-start;list-style: none;}#itemList li {margin: 0 12px 24px;}#itemList li>div {width: 184px;margin: 0px;}#itemList li>div>div:nth-child(1) {position: relative;margin-bottom: 4px;}#itemList li>div>div:nth-child(1)>div {position: relative;width: 184px;height: 184px;}#itemList li>div>div:nth-child(1)>div>a {text-decoration: none;}#itemList li>div>div:nth-child(1)>div>a>div:nth-child(1) {position: absolute;top: 0px;left: 0px;right: 0px;box-sizing: border-box;display: flex;z-index: 1;padding: 4px 4px 0px;}#itemList li>div>div:nth-child(1)>div>a>div:nth-child(1)>div:nth-child(1) {display: flex;flex-flow: row wrap;}#itemList li>div>div:nth-child(1)>div>a>div:nth-child(1)>div:nth-child(1)>div {margin: 2px;}#itemList li>div>div:nth-child(1)>div>a>div:nth-child(1)>div:nth-child(1)>div>div {color: rgb(255, 255, 255);font-weight: bold;font-size: 10px;line-height: 1;padding: 3px 6px;border-radius: 3px;background: rgb(255, 64, 96);}#itemList li>div>div:nth-child(1)>div>a>div:nth-child(1)>div:nth-child(2) {display: flex;-webkit-box-align: center;align-items: center;box-sizing: border-box;margin-left: auto;height: 20px;color: rgb(255, 255, 255);font-size: 10px;line-height: 12px;font-weight: bold;flex: 0 0 auto;padding: 4px 6px;background: rgba(0, 0, 0, 0.32);border-radius: 10px;}#itemList li>div>div:nth-child(1)>div>a>div:nth-child(1)>div:nth-child(2)>svg {stroke: none;line-height: 0;font-size: 0px;width: 9px;height: 10px;fill: currentcolor;}#itemList li>div>div:nth-child(1)>div>a>div:nth-child(1)>div:nth-child(2)>span {margin-left: 2px;}#itemList li>div>div:nth-child(1)>div>a>div:nth-child(2) {display: flex;-webkit-box-align: center;align-items: center;-webkit-box-pack: center;justify-content: center;width: 100%;height: 100%;background-size: cover;background-color: rgb(255, 255, 255);border-radius: 4px;background-position: center center;background-repeat: no-repeat;}#itemList li>div>div:nth-child(1)>div>a>div:nth-child(2)::before {content: "";position: absolute;display: block;top: 0px;left: 0px;width: 100%;height: 100%;background-color: rgba(0, 0, 0, 0.02);}#itemList li>div>div:nth-child(1)>div>a:hover>div:nth-child(2) {opacity: 0.8;}#itemList li>div>div:nth-child(1)>div>a>div:nth-child(2)>svg {width: 48px;height: 48px;stroke: none;fill: rgb(255, 255, 255);line-height: 0;font-size: 0px;vertical-align: middle;}#itemList li>div>div:nth-child(1)>div>a>div:nth-child(2)>svg circle {fill: rgb(0, 0, 0);fill-opacity: 0.4;}#itemList li>div>a:nth-child(2) {display: inline-block;max-width: 100%;text-overflow: ellipsis;white-space: nowrap;line-height: 22px;font-size: 14px;font-weight: bold;color: rgb(31, 31, 31);overflow: hidden;text-decoration: none;transition: color 0.2s ease 0s;}#itemList li>div>a:nth-child(2):visited {color: rgb(173, 173, 173);}#itemList li>div>a:nth-child(2):hover {color: rgb(92, 92, 92);}#itemList li>div>div:nth-child(3) {display: flex;-webkit-box-align: center;align-items: center;width: 100%;}#itemList li>div>div:nth-child(3)>div {margin-right: 4px;}#itemList li>div>div:nth-child(3)>div>a {position: relative;display: block;width: 16px;height: 16px;border-radius: 50%;background-size: cover;background-position: top;-webkit-box-flex: 0;-webkit-flex: none;flex: none;}#itemList li>div>div:nth-child(3)>div>a:before {position: absolute;display: block;content: "";top: 0;left: 0;width: 100%;height: 100%;background-color: rgba(0,0,0,.02);}#itemList li>div>div:nth-child(3)>a {display: inline-block;line-height: 16px;font-size: 12px;color: rgb(173, 173, 173);text-overflow: ellipsis;white-space: nowrap;text-decoration: none;overflow: hidden;}#iframeBookmark {margin: 16px 0;}#bookmarkReadStrat {padding: 8px 14px;z-index: 5;}#pbvContainer .overlayContainer {position: relative;padding: 10px 0;}#pbvContainer .overlay {position: absolute;left: -1%;width: 102%;height: 100%;z-index: 2;background: rgba(0,0,0,.2);}#dataOption .textareaContainer {width: 100%;height: 320px;}#optionTextarea {width: 100%;height: 100%;}#dataOption .butContainer {margin: 20px 0;padding: 0 0 10px 0;}#dataOption .aBut {margin: auto 5px auto 0;}';
+    return '  #pbvContainer .flex {display: flex;}#pbvContainer .none {display: none;}#pbvContainer .aBut {display: block;margin: auto 0 auto 5px;padding: 3px 6px;border-radius: 16px;background-color: #eee;color: #666;cursor: pointer;text-align: center;text-decoration: none;}#pbvContainer a {cursor: pointer;}#pbvNav .navContents {margin-top: -1px;padding: 13px 16px 16px;font-weight: 700;font-size: 16px;color: #999;text-decoration: none;border-top: 4px solid transparent;-webkit-transition: color .2s;transition: color .2s;}#pbvNav .navContents:hover {color: #333;}#pbvNav .navContents.active {border-top: 4px solid #0096fa;color: #333;}#pbvMenu {margin: 30px 0;padding: 0;}#pbvContainer .mode label {display: block;margin: auto 5px auto 0;cursor: pointer;}#pbvContainer .mode input[type=radio] {cursor: pointer;}#pbvContainer .mode input[type=text] {-webkit-box-flex: 0;-webkit-flex: none;flex: none;padding: 3px 5px;width: 163px;height: 20px;border: 1px solid #becad7;font-size: 14px;line-height: 1;color: #555;border-radius: 0;outline: 0;-webkit-appearance: none;background-color: #fff;}#searchBut {-webkit-box-flex: 0;-webkit-flex: none;flex: none;width: 50px;height: 28px;background-color: #becad7;background-image: url("https://s.pximg.net/www/js/spa/00545159b33bfc46a2dc0eff7ef34f5b.png");background-position: 50%;background-repeat: no-repeat;background-size: 16px 16px;border: none;cursor: pointer;}#searchBut:hover {background-color: #ced7e1;}#itemList {margin: 0 -12px -24px;padding: 0;display: flex;flex-wrap: wrap;align-content: flex-start;list-style: none;}#itemList li {margin: 0 12px 24px;}#itemList li>div {width: 184px;margin: 0px;}#itemList li>div>div:nth-child(1) {position: relative;margin-bottom: 4px;}#itemList li>div>div:nth-child(1)>div {position: relative;width: 184px;height: 184px;}#itemList li>div>div:nth-child(1)>div>a {text-decoration: none;}#itemList li>div>div:nth-child(1)>div>a>div:nth-child(1) {position: absolute;top: 0px;left: 0px;right: 0px;box-sizing: border-box;display: flex;z-index: 1;padding: 4px 4px 0px;}#itemList li>div>div:nth-child(1)>div>a>div:nth-child(1)>div:nth-child(1) {display: flex;flex-flow: row wrap;}#itemList li>div>div:nth-child(1)>div>a>div:nth-child(1)>div:nth-child(1)>div {margin: 2px;}#itemList li>div>div:nth-child(1)>div>a>div:nth-child(1)>div:nth-child(1)>div>div {color: rgb(255, 255, 255);font-weight: bold;font-size: 10px;line-height: 1;padding: 3px 6px;border-radius: 3px;background: rgb(255, 64, 96);}#itemList li>div>div:nth-child(1)>div>a>div:nth-child(1)>div:nth-child(2) {display: flex;-webkit-box-align: center;align-items: center;box-sizing: border-box;margin-left: auto;height: 20px;color: rgb(255, 255, 255);font-size: 10px;line-height: 12px;font-weight: bold;flex: 0 0 auto;padding: 4px 6px;background: rgba(0, 0, 0, 0.32);border-radius: 10px;}#itemList li>div>div:nth-child(1)>div>a>div:nth-child(1)>div:nth-child(2)>svg {stroke: none;line-height: 0;font-size: 0px;width: 9px;height: 10px;fill: currentcolor;}#itemList li>div>div:nth-child(1)>div>a>div:nth-child(1)>div:nth-child(2)>span {margin-left: 2px;}#itemList li>div>div:nth-child(1)>div>a>div:nth-child(2) {display: flex;-webkit-box-align: center;align-items: center;-webkit-box-pack: center;justify-content: center;width: 100%;height: 100%;background-size: cover;background-color: rgb(255, 255, 255);border-radius: 4px;background-position: center center;background-repeat: no-repeat;}#itemList li>div>div:nth-child(1)>div>a>div:nth-child(2)::before {content: "";position: absolute;display: block;top: 0px;left: 0px;width: 100%;height: 100%;background-color: rgba(0, 0, 0, 0.02);}#itemList li>div>div:nth-child(1)>div>a:hover>div:nth-child(2) {opacity: 0.8;}#itemList li>div>div:nth-child(1)>div>a>div:nth-child(2)>svg {width: 48px;height: 48px;stroke: none;fill: rgb(255, 255, 255);line-height: 0;font-size: 0px;vertical-align: middle;}#itemList li>div>div:nth-child(1)>div>a>div:nth-child(2)>svg circle {fill: rgb(0, 0, 0);fill-opacity: 0.4;}#itemList li>div>a:nth-child(2) {display: inline-block;max-width: 100%;text-overflow: ellipsis;white-space: nowrap;line-height: 22px;font-size: 14px;font-weight: bold;color: rgb(31, 31, 31);overflow: hidden;text-decoration: none;transition: color 0.2s ease 0s;}#itemList li>div>a:nth-child(2):visited {color: rgb(173, 173, 173);}#itemList li>div>a:nth-child(2):hover {color: rgb(92, 92, 92);}#itemList li>div>div:nth-child(3) {display: flex;-webkit-box-align: center;align-items: center;width: 100%;}#itemList li>div>div:nth-child(3)>div {margin-right: 4px;}#itemList li>div>div:nth-child(3)>div>a {position: relative;display: block;width: 16px;height: 16px;border-radius: 50%;background-size: cover;background-position: top;-webkit-box-flex: 0;-webkit-flex: none;flex: none;}#itemList li>div>div:nth-child(3)>div>a:before {position: absolute;display: block;content: "";top: 0;left: 0;width: 100%;height: 100%;background-color: rgba(0,0,0,.02);}#itemList li>div>div:nth-child(3)>a {display: inline-block;line-height: 16px;font-size: 12px;color: rgb(173, 173, 173);text-overflow: ellipsis;white-space: nowrap;text-decoration: none;overflow: hidden;}#iframeBookmark {margin: 16px 0;}#bookmarkReadStrat {padding: 8px 14px;z-index: 5;}#pbvContainer .overlayContainer {position: relative;padding: 10px 0;}#pbvContainer .overlay {position: absolute;left: -1%;width: 102%;height: 100%;z-index: 2;background: rgba(0,0,0,.2);}#dataOption .textareaContainer {width: 100%;height: 320px;}#optionTextarea {width: 100%;height: 100%;}#dataOption .butContainer {margin: 20px 0;padding: 0 0 10px 0;}#dataOption .aBut {margin: auto 5px auto 0;}';
   }
-  return '#pbvContainer .flex {display: flex;}#pbvContainer .none {display: none;}#pbvMenu {margin: 30px 0;padding: 0;}#pbvContainer .mode label {display: block;margin: auto 5px auto 0;cursor: pointer;}#pbvContainer .mode input {cursor: pointer;}#pbvContainer .aBut {display: block;margin: auto 0 auto 5px;padding: 3px 6px;border-radius: 16px;background-color: #eee;color: #666;cursor: pointer;text-align: center;text-decoration: none;}#itemList>div {width: 50%;display: inline-block;position: relative;}#itemList>div>div {display: inline-block;box-sizing: border-box;position: relative;width: 100%;vertical-align: bottom;}#itemList>div>div>a>div {width: 100%;height: 100%;position: relative;background: #fff;overflow: hidden;}#itemList>div>div>a>div>div.square {display: block;height: 0;width: 100%;padding-bottom: 100%;opacity: 0;}#itemList>div>div>a>div>div.image {position: absolute;top: 0;left: 0;width: 100%;height: 100%;background-size: cover;}#itemList>div>div>a>div>div.image>div.count {position: absolute;top: 4px;right: 4px;display: inline-block;margin: 0;padding: 0 6px;line-height: 19px;color: #fff;background: rgba(0,0,0,.4);border-radius: 20px;font-size: 10px;font-weight: 700;}#itemList>div>div>a>div>div.image>div.count>img {vertical-align: middle;height: 9px;margin-right: 3px;}#itemList>div>div>a>div>div.image>div.ugoku {position: absolute;top: 50%;left: 50%;width: 32%;height: 32%;background: rgba(0,0,0,.4);border-radius: 100%;-webkit-transform: translateX(-50%) translateY(-50%);transform: translateX(-50%) translateY(-50%);}#itemList>div>div>a>div>div.image>div.ugoku>img {position: absolute;top: 50%;left: 50%;height: 45%;-webkit-transform: translateX(-37.5%) translateY(-50%);transform: translateX(-37.5%) translateY(-50%);}#bookmarkAdd .aBut {margin: 5px;flex-grow: 1;}#bookmarkAdd label {margin: auto;}#bookmarkAdd .iframeContainer {width: 100%;height: 320px;margin: 16px 0;overflow: scroll;}#pbvContainer .overlayContainer {position: relative;padding: 10px 0;}#pbvContainer .overlay {position: absolute;left: -1%;width: 102%;height: 100%;z-index: 2;background: rgba(0,0,0,.2);}#bookmarkReadStrat {padding: 8px 14px;z-index: 5;}#dataOption .textareaContainer {width: 100%;height: 320px;}#optionTextarea {width: 100%;height: 100%;}#dataOption .butContainer {margin: 20px 0;padding: 0 0 10px 0;}#dataOption .aBut {margin: auto 5px auto 0;}';
+  return '#pbvContainer .flex {display: flex;}#pbvContainer .none {display: none;}#pbvContainer .aBut {display: block;margin: auto 0 auto 5px;padding: 3px 6px;border-radius: 16px;background-color: #eee;color: #666;cursor: pointer;text-align: center;text-decoration: none;}#pbvMenu {margin: 30px 0;padding: 0;}#pbvContainer .mode label {display: block;margin: auto 5px auto 0;cursor: pointer;}#pbvContainer .mode input {cursor: pointer;}#searchBut {-webkit-box-flex: 0;-webkit-flex: none;flex: none;width: 50px;height: 32px;margin: auto;background-color: #becad7;background-image: url("https://s.pximg.net/www/js/spa/00545159b33bfc46a2dc0eff7ef34f5b.png");background-position: 50%;background-repeat: no-repeat;background-size: 16px 16px;border: none;cursor: pointer;}#itemList>div {width: 50%;display: inline-block;position: relative;}#itemList>div>div {display: inline-block;box-sizing: border-box;position: relative;width: 100%;vertical-align: bottom;}#itemList>div>div>a>div {width: 100%;height: 100%;position: relative;background: #fff;overflow: hidden;}#itemList>div>div>a>div>div.square {display: block;height: 0;width: 100%;padding-bottom: 100%;opacity: 0;}#itemList>div>div>a>div>div.image {position: absolute;top: 0;left: 0;width: 100%;height: 100%;background-size: cover;}#itemList>div>div>a>div>div.image>div.count {position: absolute;top: 4px;right: 4px;display: inline-block;margin: 0;padding: 0 6px;line-height: 19px;color: #fff;background: rgba(0,0,0,.4);border-radius: 20px;font-size: 10px;font-weight: 700;}#itemList>div>div>a>div>div.image>div.count>img {vertical-align: middle;height: 9px;margin-right: 3px;}#itemList>div>div>a>div>div.image>div.ugoku {position: absolute;top: 50%;left: 50%;width: 32%;height: 32%;background: rgba(0,0,0,.4);border-radius: 100%;-webkit-transform: translateX(-50%) translateY(-50%);transform: translateX(-50%) translateY(-50%);}#itemList>div>div>a>div>div.image>div.ugoku>img {position: absolute;top: 50%;left: 50%;height: 45%;-webkit-transform: translateX(-37.5%) translateY(-50%);transform: translateX(-37.5%) translateY(-50%);}#bookmarkAdd .aBut {margin: 5px;flex-grow: 1;}#bookmarkAdd label {margin: auto;}#bookmarkAdd .iframeContainer {width: 100%;height: 320px;margin: 16px 0;overflow: scroll;}#pbvContainer .overlayContainer {position: relative;padding: 10px 0;}#pbvContainer .overlay {position: absolute;left: -1%;width: 102%;height: 100%;z-index: 2;background: rgba(0,0,0,.2);}#bookmarkReadStrat {padding: 8px 14px;z-index: 5;}#dataOption .textareaContainer {width: 100%;height: 320px;}#optionTextarea {width: 100%;height: 100%;}#dataOption .butContainer {margin: 20px 0;padding: 0 0 10px 0;}#dataOption .aBut {margin: 8px;}';
 })();
 var pbvNav = (() => {
   return '<a href="javascript:void(0);" id="navBookmark" class="navContents active">ブックマーク</a><a href="javascript:void(0);" id="navOption" class="navContents">オプション</a>';
 })();
 var pbvBookmarkHTML = (() => {
   if (pc) {
-    return '<menu id="pbvMenu" class="flex"><div class="mode flex"><label><span>登録順</span><input type="radio" id="radioNormal" name="radioMode" checked></label><label><span>ランダム</span><input type="radio" id="radioRandom" name="radioMode"></label></div><input type="search" id="inputSearch" value="" placeholder="検索" style="flex-grow:1;"><div class="buttons flex"><a href="javascript:void(0);" id="inputOr" class="aBut">OR</a><a href="javascript:void(0);" id="inputNot" class="aBut">NOT</a></div></menu><ul id="itemList"></ul>';
+    return '<menu id="pbvMenu" class="flex"><div class="mode flex"><label><span>登録順</span><input type="radio" id="radioNormal" name="radioMode" checked></label><label><span>ランダム</span><input type="radio" id="radioRandom" name="radioMode"></label></div><input type="search" id="inputSearch" value="" placeholder="検索" style="flex-grow:1;"><div class="buttons flex"><a href="javascript:void(0);" id="searchBut"></a></div></menu><ul id="itemList"></ul>';
   }
-  return '<menu id="pbvMenu"><div class="flex" style="display:flex;"><input type="search" id="inputSearch" value="" placeholder="検索" style="flex-grow:1;"><a href="javascript:void(0);" id="inputOr" class="aBut">OR</a><a href="javascript:void(0);" id="inputNot" class="aBut">NOT</a></div><div class="mode flex"><label><span>登録順</span><input type="radio" id="radioNormal" name="radioMode" checked></label><label><span>ランダム</span><input type="radio" id="radioRandom" name="radioMode"></label></div></menu><span id="itemList"></span>';
+  return '<menu id="pbvMenu"><div class="flex" style="display:flex;"><input type="search" id="inputSearch" value="" placeholder="検索" style="flex-grow:1;"><a href="javascript:void(0);" id="searchBut"></a></div><div class="mode flex"><label><span>登録順</span><input type="radio" id="radioNormal" name="radioMode" checked></label><label><span>ランダム</span><input type="radio" id="radioRandom" name="radioMode"></label></div></menu><span id="itemList"></span>';
 })();
 var pbvOptionHTML = (() => {
   if (pc) {
-    return '<div id="bookmarkAdd" class="overlayContainer"><div class="overlay none"></div><h2>ブックマークの読み込み</h2><div><div class="flex"><label><span>ページ数</span><input type="number" id="inputPageCount" value="1" min="1" max="9999"></label><a href="javascript:void(0);" id="jumpPageCount" class="aBut">移動</a><div style="flex-grow: 1;"></div><a href="javascript:void(0);" id="jumpOldPage" class="aBut">旧ブックマークページ</a><a href="javascript:void(0);" id="jumpNewPage" class="aBut">新ブックマークページ</a></div><iframe id="iframeBookmark" src="" width="100%" height="320px"></iframe></div><div class="mode flex"><label><span>追加</span><input type="radio" id="radioDataAdd" name="radioData" checked></label><label><span>上書き</span><input type="radio" id="radioDataOverwrite" name="radioData"></label><div style="flex-grow: 1;"></div><a href="javascript:void(0);" id="bookmarkReadStrat" class="aBut" style="padding: 8px 14px;">開始</a></div></div><div id="dataOption"><h2>データの管理</h2><div class="textareaContainer"><textarea id="optionTextarea"></textarea></div><div class="butContainer flex"><a href="javascript:void(0);" id="butDataShow" class="aBut">データの表示</a><a href="javascript:void(0);" id="butDataOverwrite" class="aBut">データの上書き</a></div></div>';
+    return '<div id="bookmarkAdd" class="overlayContainer"><div class="overlay none"></div><h2>ブックマークの読み込み</h2><div><div class="flex"><label><span>ページ数</span><input type="number" id="inputPageCount" value="1" min="1" max="9999"></label><a href="javascript:void(0);" id="jumpPageCount" class="aBut">移動</a><div style="flex-grow: 1;"></div><a href="javascript:void(0);" id="jumpOldPage" class="aBut">旧ブックマークページ</a><a href="javascript:void(0);" id="jumpNewPage" class="aBut">新ブックマークページ</a></div><iframe id="iframeBookmark" src="" width="100%" height="320px"></iframe></div><div class="mode flex"><label><span>追加</span><input type="radio" id="radioDataAdd" name="radioData" checked></label><label><span>上書き</span><input type="radio" id="radioDataOverwrite" name="radioData"></label><div style="flex-grow: 1;"></div><a href="javascript:void(0);" id="bookmarkReadStrat" class="aBut" style="padding: 8px 14px;">開始</a></div></div><div id="dataOption"><h2>データの管理</h2><div class="textareaContainer"><textarea id="optionTextarea"></textarea></div><div class="butContainer flex"><a href="javascript:void(0);" id="butDataShow" class="aBut">データの表示</a><a href="javascript:void(0);" id="butDataOverwrite" class="aBut">データの上書き</a><a href="javascript:void(0);" id="butLoadWithAjax" class="aBut">データの読み込み</a></div></div>';
   }
-  return '<div id="bookmarkAdd" class="overlayContainer"><div class="overlay none"></div><h2>ブックマークの読み込み</h2><div class="flex"><a href="javascript:void(0);" id="jumpOldPage" class="aBut">旧ブックマークページ</a><a href="javascript:void(0);" id="jumpNewPage" class="aBut">新ブックマークページ</a></div><div class="flex"><label><span>ページ数</span><input type="number" id="inputPageCount" value="1" min="1" max="9999"></label><div style="flex-grow: 1;"></div><a href="javascript:void(0);" id="jumpPageCount" class="aBut">移動</a></div><div class="iframeContainer"><iframe id="iframeBookmark" src="" width="100%" height="320px"></iframe></div><div class="mode flex"><label><span>追加</span><input type="radio" id="radioDataAdd" name="radioData" checked></label><label><span>上書き</span><input type="radio" id="radioDataOverwrite" name="radioData"></label><div style="flex-grow: 1;"></div><a href="javascript:void(0);" id="bookmarkReadStrat" class="aBut" style="padding: 8px 14px;">開始</a></div></div><div id="dataOption"><h2>データの管理</h2><div class="textareaContainer"><textarea id="optionTextarea"></textarea></div><div class="butContainer flex"><a href="javascript:void(0);" id="butDataShow" class="aBut">データの表示</a><a href="javascript:void(0);" id="butDataOverwrite" class="aBut">データの上書き</a></div></div>';
+  return '<div id="bookmarkAdd" class="overlayContainer"><div class="overlay none"></div><h2>ブックマークの読み込み</h2><div class="flex"><a href="javascript:void(0);" id="jumpOldPage" class="aBut">旧ブックマークページ</a><a href="javascript:void(0);" id="jumpNewPage" class="aBut">新ブックマークページ</a></div><div class="flex"><label><span>ページ数</span><input type="number" id="inputPageCount" value="1" min="1" max="9999"></label><div style="flex-grow: 1;"></div><a href="javascript:void(0);" id="jumpPageCount" class="aBut">移動</a></div><div class="iframeContainer"><iframe id="iframeBookmark" src="" width="100%" height="320px"></iframe></div><div class="mode flex"><label><span>追加</span><input type="radio" id="radioDataAdd" name="radioData" checked></label><label><span>上書き</span><input type="radio" id="radioDataOverwrite" name="radioData"></label><div style="flex-grow: 1;"></div><a href="javascript:void(0);" id="bookmarkReadStrat" class="aBut" style="padding: 8px 14px;">開始</a></div></div><div id="dataOption"><h2>データの管理</h2><div class="textareaContainer"><textarea id="optionTextarea"></textarea></div><div class="butContainer"><a href="javascript:void(0);" id="butDataShow" class="aBut">データの表示</a><a href="javascript:void(0);" id="butDataOverwrite" class="aBut">データの上書き</a><a href="javascript:void(0);" id="butLoadWithAjax" class="aBut">データの読み込み</a></div></div>';
 })();
 
 var page = 'bookmark';
 
-var bookmarkData = (() => {
-  var d = JSON.parse(localStorage.getItem('pbvBookmarkData'));
-  if (d != null) return d;
-  return [];
-})();
+var bookmarkData = [];
 var randomData = [];
 var searchData = [];
 
-var userIcon = (() => {
-  var d = JSON.parse(localStorage.getItem('pbvUserData'));
-  if (d != null) return d;
-  return {};
-})();
+var userData = {};
 
 var addData = [];
 
@@ -167,7 +159,10 @@ function changePage() {
     bookmarkAddPage = '';
     bookmarkAddPageCount = 1;
     reading = false;
-    document.getElementById("optionTextarea").placeholder = "「データの表示」　ここに現在のデータを表示します。\n\n「データの上書き」　ここに書かれたデータを現在のデータに上書きします。";
+    document.getElementById("optionTextarea").placeholder =
+    "「データの表示」　ここに現在のデータを表示します。\r\n\r\n" +
+    "「データの上書き」　ここに書かれたデータを現在のデータに上書きします。\r\n\r\n" +
+    "「データの読み込み」　ここに書かれたURLのファイル内容を現在のデータに上書きします。（dropboxの共有URLでも可）";
   }
 };
 
@@ -185,7 +180,8 @@ function setEvent() {
       bookmarkViewMode = 'normal';
       loadCount = 0;
       document.getElementById('itemList').innerHTML = null;
-      addItem();
+      createSearchData()
+      .then(addItem());
     }, false);
     // radioRandom
     element = document.getElementById('radioRandom');
@@ -194,9 +190,8 @@ function setEvent() {
       loadCount = 0;
       document.getElementById('itemList').innerHTML = null;
       createRandomData()
-      .then(() => {
-        addItem();
-      });
+      .then(createSearchData())
+      .then(addItem());
     }, false);
 
     // inputSearch
@@ -204,26 +199,17 @@ function setEvent() {
     element.addEventListener('change', () => {
       loadCount = 0;
       document.getElementById('itemList').innerHTML = null;
-      searchBoxChange()
-      .then(() => {
-        bookmarkViewMode = 'search';
-        addItem();
-      });
+      createSearchData()
+      .then(addItem());
     }, false);
 
-    // inputOr
-    element = document.getElementById('inputOr');
+    // searchBut
+    element = document.getElementById('searchBut');
     element.addEventListener('click', () => {
-      var inputSearch = document.getElementById('inputSearch');
-      if (inputSearch.value != '') inputSearch.value += ' ';
-      inputSearch.value += 'OR ';
-    }, false);
-    // inputNot
-    element = document.getElementById('inputNot');
-    element.addEventListener('click', () => {
-      var inputSearch = document.getElementById('inputSearch');
-      if (inputSearch.value != '') inputSearch.value += ' ';
-      inputSearch.value += 'NOT ';
+      loadCount = 0;
+      document.getElementById('itemList').innerHTML = null;
+      createSearchData()
+      .then(addItem());
     }, false);
   }
   else {
@@ -321,13 +307,36 @@ function setEvent() {
     element.addEventListener('click', () => {
       overwriteBookmarkData();
     }, false);
+    // butLoadWithAjax
+    element = document.getElementById('butLoadWithAjax');
+    element.addEventListener('click', () => {
+      loadDataWithAjax();
+    }, false);
   }
 };
 setEvent();
 
+function loadToLocalStorage() {
+  return new Promise(function(resolve, reject) {
+    var data = JSON.parse(localStorage.getItem('pbv'));
+    if (data != null) {
+      bookmarkData = data.bookmark;
+      userData = data.user;
+    }
+    resolve();
+  });
+}
+loadToLocalStorage();
+
 function saveToLocalStorage() {
-  localStorage.setItem('pbvBookmarkData', JSON.stringify(bookmarkData));
-  localStorage.setItem('pbvUserData', JSON.stringify(userIcon));
+  return new Promise(function(resolve) {
+    var data = {
+      "bookmark": bookmarkData,
+      "user": userData
+    };
+    localStorage.setItem('pbv', JSON.stringify(data));
+    resolve();
+  });
 }
 
 function getParameter(url) {
@@ -340,17 +349,43 @@ function getParameter(url) {
   return arg;
 }
 
+function getData(url) {
+  return new Promise(function(resolve, reject) {
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState == 4) {
+        if(xhr.status == 200) {
+          resolve(xhr.responseText);
+        }
+        else {
+          reject(Error(xhr.statusText));
+        }
+      }
+    };
+    xhr.onerror = function() {
+      reject(Error("Network Error"));
+    };
+    xhr.open('GET', url);
+    xhr.send(null);
+  });
+}
+
 /* bookmark */
 
 function addItem() {
-  for (var i = 0; i < viewCount; i++) {
-    var index = i + (loadCount * viewCount);
-    var data = (() => {
-      if (bookmarkViewMode == 'normal') return bookmarkData[index];
-      if (bookmarkViewMode == 'random') return randomData[index];
-      return searchData[index];
-    })();
-    createItem(data);
+  try {
+    for (var i = 0; i < viewCount; i++) {
+      var index = i + (loadCount * viewCount);
+      var data = (() => {
+        if (bookmarkViewMode == 'normal') return bookmarkData[index];
+        if (bookmarkViewMode == 'random') return randomData[index];
+        return searchData[index];
+      })();
+      createItem(data);
+    }
+  }
+  catch (e) {
+    console.error(e);
   }
 };
 addItem();
@@ -500,7 +535,7 @@ function createRandomData() {
 }
 createRandomData();
 
-function searchBoxChange() {
+function createSearchData() {
   return new Promise(function(resolve, reject) {
     // 検索用の配列を空にしておく
     searchData = [];
@@ -512,9 +547,7 @@ function searchBoxChange() {
         if (document.getElementById('radioRandom').checked) return 'random';
         return 'normal';
       })();
-      loadCount = 0;
-      document.getElementById('itemList').innerHTML = null;
-      addItem();
+      resolve();
       return;
     }
 
@@ -562,6 +595,7 @@ function searchBoxChange() {
       }
     }
 
+    bookmarkViewMode = 'search';
     resolve();
   });
 }
@@ -624,9 +658,9 @@ function readBookmarkPageData() {
       try {
         var imgElement = imgItem[i].getElementsByClassName('ui-scroll-view')[0];
         var data = {};
+        data.id = imgElement.getAttribute('data-id');
         data.title = imgItem[i].getElementsByClassName('title')[0].getAttribute('title');
         data.user = imgItem[i].getElementsByClassName('user')[0].getAttribute('data-user_name');
-        data.id = imgElement.getAttribute('data-id');
         data.userId = imgItem[i].getElementsByClassName('user')[0].getAttribute('data-user_id');
         data.count = (() => {
           if (imgItem[i].querySelector('.page-count span')) return imgItem[i].querySelector('.page-count span').textContent;
@@ -637,6 +671,9 @@ function readBookmarkPageData() {
         data.ugoku = imgItem[i].getElementsByClassName('work')[0].classList.contains('ugoku-illust');
         data.tags = imgElement.getAttribute('data-tags').split(' ');
         addData.unshift(data);
+
+        if (!userData[data.id]) userData[data.id] = {"icon": ""};
+        userData[data.id].name = data.user;
       }
       catch (e) {
         // console.error(e);
@@ -647,9 +684,12 @@ function readBookmarkPageData() {
     var imgItem = iframeDoc.querySelectorAll(NEW_PAGE_LI_QUERY);
     for (var i = imgItem.length - 1; i >= 0; i--) {
       try {
-        var a = imgItem[i].querySelectorAll('a')[2];
-        var id = a.href.match(/(\w+)$/)[1];
-        userIcon[id] = a.style.backgroundImage.match(/"(.+)"/)[1];
+        var a = imgItem[i].getElementsByTagName('a');
+        var id = a[2].href.match(/(\w+)$/)[1];
+        userData[id] = {
+          "name": a[3].textContent,
+          "icon": a[2].style.backgroundImage.match(/"(.+)"/)[1]
+        };
       }
       catch (e) {
         // console.error(e);
@@ -680,7 +720,7 @@ function readBookmarkPageData() {
     })
     .then(() => {
       return new Promise(resolve => {
-        setUserIconUrl();
+        setUserData();
         resolve();
       });
     })
@@ -705,12 +745,13 @@ function addBookmarkData() {
   bookmarkData = addData.concat(bookmarkData);
 }
 
-function setUserIconUrl() {
+function setUserData() {
   if (bookmarkData == []) return;
-  for (key in userIcon) {
+  for (key in userData) {
     bookmarkData.forEach((e) => {
       if (e.userId == key) {
-        e.userIconUrl = userIcon[key];
+        if (e.user != userData[key].name) e.user = userData[key].name;
+        if (e.userIconUrl != userData[key].icon) e.userIconUrl = userData[key].icon;
       }
     });
   }
@@ -721,7 +762,7 @@ function showBookmarkData() {
   if (!confirm) return;
 
   var optionTextarea = document.getElementById('optionTextarea');
-  optionTextarea.value = JSON.stringify(bookmarkData);
+  optionTextarea.value = localStorage.getItem('pbv');
 }
 
 function overwriteBookmarkData() {
@@ -729,17 +770,66 @@ function overwriteBookmarkData() {
   if (!confirm) return;
 
   var optionTextarea = document.getElementById('optionTextarea');
-  if (optionTextarea.value == '') return;
+  if (optionTextarea.value == '') {
+    optionTextarea.value = 'データが無効です。';
+    return;
+  }
 
   var data;
   try {
-    data = JSON.parse(optionTextarea.value);
-    bookmarkData = data;
-    saveToLocalStorage();
+    new Promise(function(resolve, reject) {
+      data = JSON.parse(optionTextarea.value);
+      bookmarkData = data.bookmark;
+      userData = data.user;
+      resolve();
+    })
+    .then(saveToLocalStorage())
+    .then(() => {
+      optionTextarea.value = '完了';
+    });
   }
   catch (e) {
-    alert('データが無効です。');
+    optionTextarea.value = 'データが無効です。';
   }
+}
+
+function loadDataWithAjax() {
+  var confirm = window.confirm('データを読み込みます。');
+  if (!confirm) return;
+
+  var optionTextarea = document.getElementById('optionTextarea');
+  var url = optionTextarea.value.replace(/(\r|\n|\r\n)/g, '');
+  if (optionTextarea.value == '') {
+    optionTextarea.value = 'URLが無効です。';
+    return;
+  }
+
+  if (/https\:\/\/www\.dropbox\.com\/s\/.+?\?dl=0/.test(url)) {
+    url = url.replace(/^(.+?)www\.dropbox\.com(.+?)\?dl=0$/, '$1dl.dropboxusercontent.com$2');
+  }
+
+  getData(url)
+  .then(res => {
+    try {
+      new Promise(function(resolve, reject) {
+        var data = JSON.parse(res);
+        bookmarkData = data.bookmark;
+        userData = data.user;
+        resolve();
+      })
+      .then(saveToLocalStorage())
+      .then(() => {
+        optionTextarea.value = '完了';
+      });
+    }
+    catch (e) {
+      optionTextarea.value = 'データが無効です。';
+    }
+  },
+  err => {
+    optionTextarea.value = 'URLが無効です。';
+    console.error(err);
+  });
 }
 
 })();
