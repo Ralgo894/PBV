@@ -319,10 +319,8 @@ setEvent();
 function loadToLocalStorage() {
   return new Promise(function(resolve, reject) {
     var data = JSON.parse(localStorage.getItem('pbv'));
-    if (data != null) {
-      bookmarkData = data.bookmark;
-      userData = data.user;
-    }
+    if (data.bookmark != null) {bookmarkData = data.bookmark;}
+    if (data.user != null) {userData = data.user;}
     resolve();
   });
 }
@@ -672,8 +670,15 @@ function readBookmarkPageData() {
         data.tags = imgElement.getAttribute('data-tags').split(' ');
         addData.unshift(data);
 
-        if (!userData[data.userId]) userData[data.userId] = {"icon": ""};
-        userData[data.userId].name = data.user;
+        if (userData[data.userId] == null) {
+          userData[data.userId] = {
+            "name": data.user,
+            "icon": ""
+          };
+        }
+        else {
+          userData[data.userId].name = data.user;
+        }
       }
       catch (e) {
         // console.error(e);
@@ -718,16 +723,10 @@ function readBookmarkPageData() {
       }
       resolve();
     })
+    .then(setUserData())
+    .then(saveToLocalStorage())
     .then(() => {
-      return new Promise(resolve => {
-        setUserData();
-        resolve();
-      });
-    })
-    .then(() => {
-      saveToLocalStorage();
-      var but = document.getElementById('bookmarkReadStrat');
-      but.click();
+      document.getElementById('bookmarkReadStrat').click();
     });
   }
 }
@@ -746,15 +745,18 @@ function addBookmarkData() {
 }
 
 function setUserData() {
-  if (bookmarkData == []) return;
-  for (key in userData) {
-    bookmarkData.forEach((e) => {
-      if (e.userId == key) {
-        if (e.user != userData[key].name) e.user = userData[key].name;
-        if (e.userIconUrl != userData[key].icon) e.userIconUrl = userData[key].icon;
-      }
-    });
-  }
+  new Promise(function(resolve, reject) {
+    if (bookmarkData == []) return;
+    for (key in userData) {
+      bookmarkData.forEach((e) => {
+        if (e.userId == key) {
+          if (e.user != userData[key].name) e.user = userData[key].name;
+          if (e.userIconUrl != userData[key].icon) e.userIconUrl = userData[key].icon;
+        }
+      });
+    }
+    resolve();
+  });
 }
 
 function showBookmarkData() {
