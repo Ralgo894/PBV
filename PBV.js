@@ -140,7 +140,6 @@ function resetHTML() {
     setEvent();
   }, false);
 }
-resetHTML();
 
 function changePage() {
   container.innerHTML = (() => {
@@ -314,11 +313,11 @@ function setEvent() {
     }, false);
   }
 };
-setEvent();
 
 function loadToLocalStorage() {
   return new Promise(function(resolve, reject) {
     var data = JSON.parse(localStorage.getItem('pbv'));
+    if (!isObject(data)) data = {};
     bookmarkData = (() => {
       if (data.bookmark) return data.bookmark;
       return [];
@@ -330,7 +329,6 @@ function loadToLocalStorage() {
     resolve();
   });
 }
-loadToLocalStorage();
 
 function saveToLocalStorage() {
   return new Promise(function(resolve) {
@@ -374,6 +372,15 @@ function getData(url) {
   });
 }
 
+function isObject(o) {
+  return (o instanceof Object && !(o instanceof Array)) ? true : false;
+};
+
+resetHTML();
+setEvent();
+loadToLocalStorage()
+.then(saveToLocalStorage());
+
 /* bookmark */
 
 function addItem() {
@@ -392,7 +399,6 @@ function addItem() {
     console.error(e);
   }
 };
-addItem();
 
 function createItem(data) {
   if (data == undefined) return;
@@ -537,7 +543,6 @@ function createRandomData() {
     resolve();
   });
 }
-createRandomData();
 
 function createSearchData() {
   return new Promise(function(resolve, reject) {
@@ -603,6 +608,9 @@ function createSearchData() {
     resolve();
   });
 }
+
+addItem();
+createRandomData();
 
 /* option */
 
@@ -769,8 +777,12 @@ function showBookmarkData() {
   var confirm = window.confirm('データを表示します。');
   if (!confirm) return;
 
-  var optionTextarea = document.getElementById('optionTextarea');
-  optionTextarea.value = localStorage.getItem('pbv');
+  loadToLocalStorage()
+  .then(saveToLocalStorage())
+  .then(() => {
+    var optionTextarea = document.getElementById('optionTextarea');
+    optionTextarea.value = localStorage.getItem('pbv');
+  });
 }
 
 function overwriteBookmarkData() {
@@ -778,33 +790,22 @@ function overwriteBookmarkData() {
   if (!confirm) return;
 
   var optionTextarea = document.getElementById('optionTextarea');
-  if (optionTextarea.value == '') {
-    optionTextarea.value = 'データが無効です。';
-    return;
-  }
 
   var data;
-  try {
-    new Promise(function(resolve, reject) {
-      data = JSON.parse(optionTextarea.value);
-      bookmarkData = (() => {
-        if (data.bookmark) return data.bookmark;
-        return [];
-      })();
-      userData = (() => {
-        if (data.user) return data.user;
-        return {};
-      })();
-      resolve();
-    })
-    .then(saveToLocalStorage())
-    .then(() => {
-      optionTextarea.value = '完了';
-    });
-  }
-  catch (e) {
+  new Promise(function(resolve, reject) {
+    data = JSON.parse(optionTextarea.value);
+    localStorage.setItem('pbv', JSON.stringify(data));
+    resolve();
+  })
+  .then(loadToLocalStorage())
+  .then(saveToLocalStorage())
+  .then(() => {
+    optionTextarea.value = '完了';
+  })
+  .catch(err => {
     optionTextarea.value = 'データが無効です。';
-  }
+    console.error(e);
+  });
 }
 
 function loadDataWithAjax() {
@@ -824,27 +825,30 @@ function loadDataWithAjax() {
 
   getData(url)
   .then(res => {
-    try {
-      new Promise(function(resolve, reject) {
-        var data = JSON.parse(res);
-        bookmarkData = (() => {
-          if (data.bookmark) return data.bookmark;
-          return [];
-        })();
-        userData = (() => {
-          if (data.user) return data.user;
-          return {};
-        })();
-        resolve();
-      })
-      .then(saveToLocalStorage())
-      .then(() => {
-        optionTextarea.value = '完了';
-      });
-    }
-    catch (e) {
+    new Promise(function(resolve, reject) {
+      var data = JSON.parse(res);
+      if (!isObject(data)) {
+        reject();
+        return;
+      }
+      bookmarkData = (() => {
+        if (data.bookmark) return data.bookmark;
+        return [];
+      })();
+      userData = (() => {
+        if (data.user) return data.user;
+        return {};
+      })();
+      resolve();
+    })
+    .then(saveToLocalStorage())
+    .then(() => {
+      optionTextarea.value = '完了';
+    })
+    .catch(err => {
       optionTextarea.value = 'データが無効です。';
-    }
+      console.error(err);
+    });
   },
   err => {
     optionTextarea.value = 'URLが無効です。';
