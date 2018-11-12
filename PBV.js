@@ -404,7 +404,7 @@ function createItem(data) {
   if (data == undefined) return;
 
   var isCount = (() => {
-    if (data.count == '0') return 'display: none;';
+    if (data.count == '1') return 'display: none;';
     return '';
   })();
   var isR18 = (() => {
@@ -676,7 +676,7 @@ function readBookmarkPageData() {
         data.userId = imgItem[i].getElementsByClassName('user')[0].getAttribute('data-user_id');
         data.count = (() => {
           if (imgItem[i].querySelector('.page-count span')) return imgItem[i].querySelector('.page-count span').textContent;
-          return '0';
+          return '1';
         })();
         data.imageUrl = imgElement.getAttribute('data-src').replace(/^.+?img\/(.+?)master(.+?)$/, '$1square$2');
         data.userIconUrl = '';
