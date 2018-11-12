@@ -111,7 +111,7 @@ function resetHTML() {
     document.head.appendChild(addStyle);
 
     // content
-    container = document.querySelector('#contents>div>div:nth-child(2)>div:nth-child(6)');
+    container = document.querySelector('#contents>div>div:nth-child(2)>div:nth-child(5)');
     container.id = 'pbvContainer';
     container.innerHTML = pbvBookmarkHTML;
   }
