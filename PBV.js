@@ -1,6 +1,4 @@
 (() => {
-var NEW_PAGE_LI_QUERY = '#root ul.xq6AsQu.KvF6Ntf li';
-
 var pc = (() => {
   if (document.getElementById('root')) return true;
   return false;
@@ -562,42 +560,47 @@ function createSearchData() {
 
     // 使う配列
     var arr = [];
-
     if (document.getElementById('radioRandom').checked) { arr = randomData; }
     else { arr = bookmarkData; }
 
-    var searchTexts = searchBox.replace(/　/g , ' ').split(' ');
+    var searchTexts = searchBox.replace(/\s/g , ' ').split(' ');
 
-    var condition = [[]];
-    for (var i = 0; i < searchTexts.length; i++) {
-      if (searchTexts[i] != 'AND'
-      && searchTexts[i] != 'OR'
-      && searchTexts[i] != 'NOT'
-    ) {
-      if (searchTexts[i - 1] == 'OR') {
-        condition.push([searchTexts[i]]);
-      }
-      else if (searchTexts[i - 1] == 'NOT') {
-        condition[condition.length - 1].push('-' + searchTexts[i]);
-      }
-      else {
-        condition[condition.length - 1].push(searchTexts[i]);
+    var matcher;
+    if (!/^\/.*\/$/.test(searchBox)) {
+      var condition = [[]];
+      for (var i = 0; i < searchTexts.length; i++) {
+        if (searchTexts[i] != 'AND'
+        && searchTexts[i] != 'OR'
+        && searchTexts[i] != 'NOT'
+      ) {
+        if (searchTexts[i - 1] == 'OR') {
+          condition.push([searchTexts[i]]);
+        }
+        else if (searchTexts[i - 1] == 'NOT') {
+          condition[condition.length - 1].push('-' + searchTexts[i]);
+        }
+        else {
+          condition[condition.length - 1].push(searchTexts[i]);
+        }
       }
     }
-  }
 
-    var compile = function (cond) {
-      var joinAnd = function (arr) { return '^(?=[\\s\\S]*' + arr.join(')(?=[\\s\\S]*') + ')'; };
-      var joinOr  = function (arr) { return '(?:' + arr.join('|') + ')'; };
-      var escape  = function (str) { return str.replace(/(?=[(){}\[\].*\\^$?])/, '\\'); };
-      var rx = joinOr(cond.map(function(inner) { return joinAnd(inner.map(escape)); }));
-      rx = rx.replace(/=\[\\s\\S\]\*-/g, '![\\s\\S]*');
-      return new RegExp(rx);
-    };
-    var matcher = compile(condition);
+      var compile = function (cond) {
+        var joinAnd = function (arr) { return '^(?=[\\s\\S]*' + arr.join(')(?=[\\s\\S]*') + ')'; };
+        var joinOr  = function (arr) { return '(?:' + arr.join('|') + ')'; };
+        var escape  = function (str) { return str.replace(/(?=[(){}\[\].*\\^$?])/, '\\'); };
+        var rx = joinOr(cond.map(function(inner) { return joinAnd(inner.map(escape)); }));
+        rx = rx.replace(/=\[\\s\\S\]\*-/g, '![\\s\\S]*');
+        return new RegExp(rx);
+      };
+      matcher = compile(condition);
+    }
+    else {
+      matcher = new RegExp(searchBox.slice(1, -1));
+    }
 
     for (var i = 0; i < arr.length; i++) {
-      var testStr = arr[i]['title'] + ' ' + arr[i]['user'] + ' ' + arr[i]['tags'].join();
+      var testStr = arr[i]['title'] + ' ' + arr[i]['user'] + ' ' + arr[i]['tags'].join(' ');
 
       if (matcher.test(testStr)) {
         searchData.push(arr[i]);
@@ -700,14 +703,14 @@ function readBookmarkPageData() {
     }
   }
   else {
-    var imgItem = iframeDoc.querySelectorAll(NEW_PAGE_LI_QUERY);
-    for (var i = imgItem.length - 1; i >= 0; i--) {
+    var imgItem = iframeDoc.querySelectorAll('div[role]');
+    for (var i = imgItem.length - 1; i >= 1; i--) {
       try {
-        var a = imgItem[i].getElementsByTagName('a');
+        var a = imgItem[i].parentElement.parentElement.parentElement.parentElement.parentElement.getElementsByTagName('a');
         var id = a[2].href.match(/(\w+)$/)[1];
         userData[id] = {
           "name": a[3].textContent,
-          "icon": a[2].style.backgroundImage.match(/"(.+)"/)[1]
+          "icon": window.getComputedStyle(imgItem[i], null).getPropertyValue('background-image').match(/\("(.+?)"\)/)[1]
         };
       }
       catch (e) {
