@@ -40,9 +40,9 @@ var pbvBookmarkHTML = (() => {
 })();
 var pbvOptionHTML = (() => {
   if (pc) {
-    return '<div id="bookmarkAdd" class="overlayContainer"><div class="overlay none"></div><h2>ブックマークの読み込み</h2><div><div class="flex"><label><span>ページ数</span><input type="number" id="inputPageCount" value="1" min="1" max="9999"></label><a href="javascript:void(0);" id="jumpPageCount" class="aBut">移動</a><div style="flex-grow: 1;"></div><a href="javascript:void(0);" id="jumpOldPage" class="aBut">旧ブックマークページ</a><a href="javascript:void(0);" id="jumpNewPage" class="aBut">新ブックマークページ</a></div><iframe id="iframeBookmark" src="" width="100%" height="320px"></iframe></div><div class="mode flex"><div style="flex-grow: 1;"></div><a href="javascript:void(0);" id="bookmarkReadStrat" class="aBut" style="padding: 8px 14px;">開始</a></div></div><div id="dataOption"><h2>データの管理</h2><div class="textareaContainer"><textarea id="optionTextarea"></textarea></div><div class="butContainer flex"><a href="javascript:void(0);" id="butDataShow" class="aBut">データの表示</a><a href="javascript:void(0);" id="butDataOverwrite" class="aBut">データの上書き</a><a href="javascript:void(0);" id="butDownloadData" class="aBut">データのダウンロード</a><a href="javascript:void(0);" id="butLoadWithAjax" class="aBut">データの読み込み</a></div></div>';
+    return '<div id="bookmarkAdd" class="overlayContainer"><div class="overlay none"></div><h2>ブックマークの読み込み</h2><div><div class="flex"><label><span>ページ数</span><input type="number" id="inputPageCount" value="1" min="1" max="9999"></label><a href="javascript:void(0);" id="jumpPageCount" class="aBut">移動</a><div style="flex-grow: 1;"></div><a href="javascript:void(0);" id="jumpOldPage" class="aBut">旧ブックマークページ</a><a href="javascript:void(0);" id="jumpNewPage" class="aBut">新ブックマークページ</a></div><iframe id="iframeBookmark" src="" width="100%" height="320px"></iframe></div><div class="mode flex"><div style="flex-grow: 1;"></div><a href="javascript:void(0);" id="bookmarkReadStrat" class="aBut" style="padding: 8px 14px;">開始</a></div></div><div id="dataOption"><h2>データの管理</h2><div class="textareaContainer"><textarea id="optionTextarea"></textarea></div><div class="butContainer flex"><a href="javascript:void(0);" id="butDataShow" class="aBut">データの表示</a><a href="javascript:void(0);" id="butDataOverwrite" class="aBut">データの上書き</a><a href="javascript:void(0);" id="butDownloadData" class="aBut">データのダウンロード</a><a href="javascript:void(0);" id="butLoadWithAjax" class="aBut">データの読み込み</a><a href="javascript:void(0);" id="butDataUpload" class="aBut">データのアップロード</a><input type="file" id="dataFile" style="display:none;"></div></div>';
   }
-  return '<div id="bookmarkAdd" class="overlayContainer"><div class="overlay none"></div><h2>ブックマークの読み込み</h2><div class="flex"><a href="javascript:void(0);" id="jumpOldPage" class="aBut">旧ブックマークページ</a><a href="javascript:void(0);" id="jumpNewPage" class="aBut">新ブックマークページ</a></div><div class="flex"><label><span>ページ数</span><input type="number" id="inputPageCount" value="1" min="1" max="9999"></label><div style="flex-grow: 1;"></div><a href="javascript:void(0);" id="jumpPageCount" class="aBut">移動</a></div><div class="iframeContainer"><iframe id="iframeBookmark" src="" width="100%" height="320px"></iframe></div><div class="mode flex"><div style="flex-grow: 1;"></div><a href="javascript:void(0);" id="bookmarkReadStrat" class="aBut" style="padding: 8px 14px;">開始</a><div style="flex-grow: 1;"></div></div></div><div id="dataOption"><h2>データの管理</h2><div class="textareaContainer"><textarea id="optionTextarea"></textarea></div><div class="butContainer flex"><a href="javascript:void(0);" id="butDataShow" class="aBut">データの表示</a><a href="javascript:void(0);" id="butDataOverwrite" class="aBut">データの上書き</a><a href="javascript:void(0);" id="butDownloadData" class="aBut">データのダウンロード</a><a href="javascript:void(0);" id="butLoadWithAjax" class="aBut">データの読み込み</a></div></div>';
+  return '<div id="bookmarkAdd" class="overlayContainer"><div class="overlay none"></div><h2>ブックマークの読み込み</h2><div class="flex"><a href="javascript:void(0);" id="jumpOldPage" class="aBut">旧ブックマークページ</a><a href="javascript:void(0);" id="jumpNewPage" class="aBut">新ブックマークページ</a></div><div class="flex"><label><span>ページ数</span><input type="number" id="inputPageCount" value="1" min="1" max="9999"></label><div style="flex-grow: 1;"></div><a href="javascript:void(0);" id="jumpPageCount" class="aBut">移動</a></div><div class="iframeContainer"><iframe id="iframeBookmark" src="" width="100%" height="320px"></iframe></div><div class="mode flex"><div style="flex-grow: 1;"></div><a href="javascript:void(0);" id="bookmarkReadStrat" class="aBut" style="padding: 8px 14px;">開始</a><div style="flex-grow: 1;"></div></div></div><div id="dataOption"><h2>データの管理</h2><div class="textareaContainer"><textarea id="optionTextarea"></textarea></div><div class="butContainer flex"><a href="javascript:void(0);" id="butDataShow" class="aBut">データの表示</a><a href="javascript:void(0);" id="butDataOverwrite" class="aBut">データの上書き</a><a href="javascript:void(0);" id="butDownloadData" class="aBut">データのダウンロード</a><a href="javascript:void(0);" id="butLoadWithAjax" class="aBut">データの読み込み</a><a href="javascript:void(0);" id="butDataUpload" class="aBut">データのアップロード</a><input type="file" id="dataFile" style="display:none;"></div></div>';
 })();
 
 var page = 'bookmark';
@@ -294,6 +294,14 @@ function setEvent() {
     element.addEventListener('click', () => {
       loadDataWithAjax();
     }, false);
+    // butDataUpload
+    element = document.getElementById('butDataUpload');
+    element.addEventListener('click', () => {
+      document.getElementById('dataFile').click();
+    }, false);
+    // dataFile
+    element = document.getElementById('dataFile');
+    element.addEventListener('change', uploadFile, false);
   }
 };
 
@@ -883,4 +891,31 @@ function loadDataWithAjax() {
   });
 }
 
+function uploadFile(e) {
+  var optionTextarea = document.getElementById('optionTextarea');
+  var file = e.target.files;
+
+  //FileReaderの作成
+  var reader = new FileReader();
+  //テキスト形式で読み込む
+  reader.readAsText(file[0]);
+
+  //読込終了後の処理
+  reader.onload = () => {
+    new Promise(function(resolve, reject) {
+      var data = JSON.parse(reader.result);
+      localStorage.setItem('pbv', JSON.stringify(data));
+      resolve();
+    })
+    .then(loadToLocalStorage())
+    .then(saveToLocalStorage())
+    .then(() => {
+      optionTextarea.value = '完了';
+    })
+    .catch(err => {
+      optionTextarea.value = 'データが無効です。';
+      console.error(err);
+    });
+  }
+}
 })();
