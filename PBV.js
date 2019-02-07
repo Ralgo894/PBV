@@ -126,40 +126,74 @@ function resetHTML() {
     navBookmark.classList.add('active');
     navOption.classList.remove('active');
     page = 'bookmark';
-    changePage();
-    setEvent();
+    saveToLocalStorage()
+    .then(loadToLocalStorage())
+    .then(() => {
+      changePage();
+      setEvent();
+    });
   }, false);
   navOption.addEventListener('click', () => {
     if (page == 'option') return;
     navOption.classList.add('active');
     navBookmark.classList.remove('active');
     page = 'option';
-    changePage();
-    setEvent();
+    saveToLocalStorage()
+    .then(loadToLocalStorage())
+    .then(() => {
+      changePage();
+      setEvent();
+    });
   }, false);
 }
 
 function changePage() {
-  container.innerHTML = (() => {
-    if (page == 'bookmark') return pbvBookmarkHTML;
-    return pbvOptionHTML;
-  })();
+  // new Promise(resolve => {
+  //   loadToLocalStorage()
+  //   .then(() => {
+  //     if (page == 'bookmark') {
+  //       container.innerHTML = pbvBookmarkHTML;
+  //
+  //       bookmarkViewMode = 'normal';
+  //       loadCount = 0;
+  //       addItem();
+  //     }
+  //     else {
+  //       container.innerHTML = pbvOptionHTML;
+  //
+  //       bookmarkPage = '';
+  //       bookmarkAddPage = '';
+  //       bookmarkAddPageCount = 1;
+  //       reading = false;
+  //       document.getElementById("optionTextarea").placeholder =
+  //       "「データの表示」　ここに現在のデータを表示します。\r\n\r\n" +
+  //       "「データの上書き」　ここに書かれたデータを現在のデータに上書きします。\r\n\r\n" +
+  //       "「データの読み込み」　ここに書かれたURLのファイル内容を現在のデータに上書きします。（dropboxの共有URLでも可）";
+  //     }
+  //   });
+  //   resolve();
+  // });
 
-  if (page == 'bookmark') {
-    bookmarkViewMode = 'normal';
-    loadCount = 0;
-    addItem();
-  }
-  else {
-    bookmarkPage = '';
-    bookmarkAddPage = '';
-    bookmarkAddPageCount = 1;
-    reading = false;
-    document.getElementById("optionTextarea").placeholder =
-    "「データの表示」　ここに現在のデータを表示します。\r\n\r\n" +
-    "「データの上書き」　ここに書かれたデータを現在のデータに上書きします。\r\n\r\n" +
-    "「データの読み込み」　ここに書かれたURLのファイル内容を現在のデータに上書きします。（dropboxの共有URLでも可）";
-  }
+      if (page == 'bookmark') {
+        container.innerHTML = pbvBookmarkHTML;
+
+        bookmarkViewMode = 'normal';
+        loadCount = 0;
+        addItem();
+      }
+      else {
+        container.innerHTML = pbvOptionHTML;
+
+        bookmarkPage = '';
+        bookmarkAddPage = '';
+        bookmarkAddPageCount = 1;
+        reading = false;
+        document.getElementById("optionTextarea").placeholder =
+        "「データの表示」　ここに現在のデータを表示します。\r\n\r\n" +
+        "「データの上書き」　ここに書かれたデータを現在のデータに上書きします。\r\n\r\n" +
+        "「データの読み込み」　ここに書かれたURLのファイル内容を現在のデータに上書きします。（dropboxの共有URLでも可）";
+      }
+
 };
 
 var iframeTimer;
@@ -710,7 +744,7 @@ function readBookmarkPageData() {
   }
   else {
     var imgItem = iframeDoc.querySelectorAll('div[role]');
-    for (var i = 0; imgItem[i]; i++) {
+    for (var i = 1; imgItem[i]; i++) {
       try {
         var a = imgItem[i].parentElement.parentElement.parentElement.parentElement.parentElement.getElementsByTagName('a');
         var id = a[2].href.match(/(\w+)$/)[1];
