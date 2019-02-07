@@ -126,73 +126,39 @@ function resetHTML() {
     navBookmark.classList.add('active');
     navOption.classList.remove('active');
     page = 'bookmark';
-    saveToLocalStorage()
-    .then(loadToLocalStorage())
-    .then(() => {
-      changePage();
-      setEvent();
-    });
+    changePage();
+    setEvent();
   }, false);
   navOption.addEventListener('click', () => {
     if (page == 'option') return;
     navOption.classList.add('active');
     navBookmark.classList.remove('active');
     page = 'option';
-    saveToLocalStorage()
-    .then(loadToLocalStorage())
-    .then(() => {
-      changePage();
-      setEvent();
-    });
+    changePage();
+    setEvent();
   }, false);
 }
 
 function changePage() {
-  // new Promise(resolve => {
-  //   loadToLocalStorage()
-  //   .then(() => {
-  //     if (page == 'bookmark') {
-  //       container.innerHTML = pbvBookmarkHTML;
-  //
-  //       bookmarkViewMode = 'normal';
-  //       loadCount = 0;
-  //       addItem();
-  //     }
-  //     else {
-  //       container.innerHTML = pbvOptionHTML;
-  //
-  //       bookmarkPage = '';
-  //       bookmarkAddPage = '';
-  //       bookmarkAddPageCount = 1;
-  //       reading = false;
-  //       document.getElementById("optionTextarea").placeholder =
-  //       "「データの表示」　ここに現在のデータを表示します。\r\n\r\n" +
-  //       "「データの上書き」　ここに書かれたデータを現在のデータに上書きします。\r\n\r\n" +
-  //       "「データの読み込み」　ここに書かれたURLのファイル内容を現在のデータに上書きします。（dropboxの共有URLでも可）";
-  //     }
-  //   });
-  //   resolve();
-  // });
+  if (page == 'bookmark') {
+    container.innerHTML = pbvBookmarkHTML;
 
-      if (page == 'bookmark') {
-        container.innerHTML = pbvBookmarkHTML;
+    bookmarkViewMode = 'normal';
+    loadCount = 0;
+    addItem();
+  }
+  else {
+    container.innerHTML = pbvOptionHTML;
 
-        bookmarkViewMode = 'normal';
-        loadCount = 0;
-        addItem();
-      }
-      else {
-        container.innerHTML = pbvOptionHTML;
-
-        bookmarkPage = '';
-        bookmarkAddPage = '';
-        bookmarkAddPageCount = 1;
-        reading = false;
-        document.getElementById("optionTextarea").placeholder =
-        "「データの表示」　ここに現在のデータを表示します。\r\n\r\n" +
-        "「データの上書き」　ここに書かれたデータを現在のデータに上書きします。\r\n\r\n" +
-        "「データの読み込み」　ここに書かれたURLのファイル内容を現在のデータに上書きします。（dropboxの共有URLでも可）";
-      }
+    bookmarkPage = '';
+    bookmarkAddPage = '';
+    bookmarkAddPageCount = 1;
+    reading = false;
+    document.getElementById("optionTextarea").placeholder =
+    "「データの表示」　ここに現在のデータを表示します。\r\n\r\n" +
+    "「データの上書き」　ここに書かれたデータを現在のデータに上書きします。\r\n\r\n" +
+    "「データの読み込み」　ここに書かれたURLのファイル内容を現在のデータに上書きします。（dropboxの共有URLでも可）";
+  }
 
 };
 
