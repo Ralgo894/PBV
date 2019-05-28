@@ -724,7 +724,7 @@ function readBookmarkPageData() {
         var id = a[2].href.match(/(\w+)$/)[1];
         userData[id] = {
           "name": a[3].textContent,
-          "icon": a[2].getElementsByTagName('img')[i].src;
+          "icon": a[2].querySelector('img').src;
         };
       }
       catch (e) {
