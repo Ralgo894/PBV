@@ -724,17 +724,23 @@ function readBookmarkPageData() {
         var id = a[2].href.match(/(\w+)$/)[1];
         userData[id] = {
           "name": a[3].textContent,
-          "icon": a[2].querySelector('img').src;
+          "icon": a[2].querySelector('img').src
         };
       }
       catch (e) {
         console.error(e);
       }
     }
-    saveToLocalStorage();
+    p++;
+    var url = (() => {
+      if (bookmarkAddPage == 'old') return 'https://www.pixiv.net/bookmark.php?rest=show&p=' + p;
+      if (bookmarkAddPage == 'new') return 'https://www.pixiv.net/bookmark.php?id=9791957&rest=show&p=' + p;
+      return '';
+    })();
+    iframe.src = url;
   }
 
-  if (checkConnectData() || lastFlag) {
+  if (checkConnectData() || lastFlag || bookmarkAddPage != 'old') {
     new Promise(resolve => {
       if (bookmarkAddPage == 'old') {
         if (!lastFlag) {
