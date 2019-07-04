@@ -889,7 +889,7 @@ function loadDataWithAjax() {
       saveToLocalStorage(res);
       resolve();
     })
-    .then(loadToLocalStorage());
+    .then(loadToLocalStorage())
     .then(() => {
       optionTextarea.value = '完了';
     })
