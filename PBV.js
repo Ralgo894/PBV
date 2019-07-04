@@ -40,9 +40,9 @@ var pbvBookmarkHTML = (() => {
 })();
 var pbvOptionHTML = (() => {
   if (pc) {
-    return '<div id="bookmarkAdd" class="overlayContainer"><div class="overlay none"></div><h2>ブックマークの読み込み</h2><div><div class="flex"><label><span>ページ数</span><input type="number" id="inputPageCount" value="1" min="1" max="9999"></label><a href="javascript:void(0);" id="jumpPageCount" class="aBut">移動</a><div style="flex-grow: 1;"></div><a href="javascript:void(0);" id="jumpOldPage" class="aBut">旧ブックマークページ</a><a href="javascript:void(0);" id="jumpNewPage" class="aBut">新ブックマークページ</a></div><iframe id="iframeBookmark" src="" width="100%" height="320px"></iframe></div><div class="mode flex"><div style="flex-grow: 1;"></div><a href="javascript:void(0);" id="bookmarkReadStrat" class="aBut" style="padding: 8px 14px;">開始</a></div></div><div id="dataOption"><h2>データの管理</h2><div class="textareaContainer"><textarea id="optionTextarea"></textarea></div><div class="butContainer flex"><a href="javascript:void(0);" id="butDataShow" class="aBut">データの表示</a><a href="javascript:void(0);" id="butDataOverwrite" class="aBut">データの上書き</a><a href="javascript:void(0);" id="butLoadWithAjax" class="aBut">データの読み込み</a></div></div>';
+    return '<div id="bookmarkAdd" class="overlayContainer"><div class="overlay none"></div><h2>ブックマークの読み込み</h2><div><div class="flex"><label><span>ページ数</span><input type="number" id="inputPageCount" value="1" min="1" max="9999"></label><a href="javascript:void(0);" id="jumpPageCount" class="aBut">移動</a><div style="flex-grow: 1;"></div><a href="javascript:void(0);" id="jumpOldPage" class="aBut">旧ブックマークページ</a><a href="javascript:void(0);" id="jumpNewPage" class="aBut">新ブックマークページ</a></div><iframe id="iframeBookmark" src="" width="100%" height="320px"></iframe></div><div class="mode flex"><div style="flex-grow: 1;"></div><a href="javascript:void(0);" id="bookmarkReadStrat" class="aBut" style="padding: 8px 14px;">開始</a></div></div><div id="dataOption"><h2>データの管理</h2><div class="textareaContainer"><textarea id="optionTextarea"></textarea></div><div class="butContainer flex"><a href="javascript:void(0);" id="butDataShow" class="aBut">データの表示</a><a href="javascript:void(0);" id="butDataOverwrite" class="aBut">データの上書き</a><a href="javascript:void(0);" id="butLoadWithAjax" class="aBut">データの読み込み</a><a href="javascript:void(0);" id="butGetDataWithApi" class="aBut">データの取得</a></div></div>';
   }
-  return '<div id="bookmarkAdd" class="overlayContainer"><div class="overlay none"></div><h2>ブックマークの読み込み</h2><div class="flex"><a href="javascript:void(0);" id="jumpOldPage" class="aBut">旧ブックマークページ</a><a href="javascript:void(0);" id="jumpNewPage" class="aBut">新ブックマークページ</a></div><div class="flex"><label><span>ページ数</span><input type="number" id="inputPageCount" value="1" min="1" max="9999"></label><div style="flex-grow: 1;"></div><a href="javascript:void(0);" id="jumpPageCount" class="aBut">移動</a></div><div class="iframeContainer"><iframe id="iframeBookmark" src="" width="100%" height="320px"></iframe></div><div class="mode flex"><div style="flex-grow: 1;"></div><a href="javascript:void(0);" id="bookmarkReadStrat" class="aBut" style="padding: 8px 14px;">開始</a><div style="flex-grow: 1;"></div></div></div><div id="dataOption"><h2>データの管理</h2><div class="textareaContainer"><textarea id="optionTextarea"></textarea></div><div class="butContainer flex"><a href="javascript:void(0);" id="butDataShow" class="aBut">データの表示</a><a href="javascript:void(0);" id="butDataOverwrite" class="aBut">データの上書き</a><a href="javascript:void(0);" id="butLoadWithAjax" class="aBut">データの読み込み</a></div></div>';
+  return '<div id="bookmarkAdd" class="overlayContainer"><div class="overlay none"></div><h2>ブックマークの読み込み</h2><div class="flex"><a href="javascript:void(0);" id="jumpOldPage" class="aBut">旧ブックマークページ</a><a href="javascript:void(0);" id="jumpNewPage" class="aBut">新ブックマークページ</a></div><div class="flex"><label><span>ページ数</span><input type="number" id="inputPageCount" value="1" min="1" max="9999"></label><div style="flex-grow: 1;"></div><a href="javascript:void(0);" id="jumpPageCount" class="aBut">移動</a></div><div class="iframeContainer"><iframe id="iframeBookmark" src="" width="100%" height="320px"></iframe></div><div class="mode flex"><div style="flex-grow: 1;"></div><a href="javascript:void(0);" id="bookmarkReadStrat" class="aBut" style="padding: 8px 14px;">開始</a><div style="flex-grow: 1;"></div></div></div><div id="dataOption"><h2>データの管理</h2><div class="textareaContainer"><textarea id="optionTextarea"></textarea></div><div class="butContainer flex"><a href="javascript:void(0);" id="butDataShow" class="aBut">データの表示</a><a href="javascript:void(0);" id="butDataOverwrite" class="aBut">データの上書き</a><a href="javascript:void(0);" id="butLoadWithAjax" class="aBut">データの読み込み</a><a href="javascript:void(0);" id="butGetDataWithApi" class="aBut">データの取得</a></div></div>';
 })();
 
 var page = 'bookmark';
@@ -284,24 +284,16 @@ function setEvent() {
     element.addEventListener('click', () => {
       overwriteBookmarkData();
     }, false);
-    // // butDownloadData
-    // element = document.getElementById('butDownloadData');
-    // element.addEventListener('click', () => {
-    //   downloadData();
-    // }, false);
     // butLoadWithAjax
     element = document.getElementById('butLoadWithAjax');
     element.addEventListener('click', () => {
       loadDataWithAjax();
     }, false);
-    // // butDataUpload
-    // element = document.getElementById('butDataUpload');
-    // element.addEventListener('click', () => {
-    //   document.getElementById('dataFile').click();
-    // }, false);
-    // // dataFile
-    // element = document.getElementById('dataFile');
-    // element.addEventListener('change', uploadFile, false);
+    // butGetDataWithApi
+    element = document.getElementById('butGetDataWithApi');
+    element.addEventListener('click', () => {
+      getDataWithApi();
+    }, false);
   }
 };
 
@@ -845,29 +837,6 @@ function overwriteBookmarkData() {
   });
 }
 
-// ボツ
-/*
-function downloadData() {
-  window.alert('申し訳ございません。工事中です。');
-  return;
-
-  var confirm = window.confirm('データをダウンロードします。');
-  if (!confirm) return;
-
-  loadToLocalStorage()
-  .then(saveToLocalStorage())
-  .then(() => {
-    var base64 = window.btoa(unescape(encodeURIComponent(localStorage.getItem('pbv'))));
-    var url = 'data:text/plain;charset=utf-8;base64,' + base64;
-    var fileName = formatTime(new Date, 'YYYY_MM_DD');
-    var a = document.createElement('a');
-    a.href = url;
-    a.download = fileName + '.txt';
-    a.click();
-  });
-}
-*/
-
 function loadDataWithAjax() {
   var confirm = window.confirm('データを読み込みます。');
   if (!confirm) return;
@@ -904,34 +873,61 @@ function loadDataWithAjax() {
   })
 }
 
-// ボツ
-/*
-function uploadFile(e) {
-  var optionTextarea = document.getElementById('optionTextarea');
-  var file = e.target.files;
+function getDataWithApi() {
+  var confirm = window.confirm('データを更新します。');
+  if (!confirm) return;
 
-  //FileReaderの作成
-  var reader = new FileReader();
-  //テキスト形式で読み込む
-  reader.readAsText(file[0]);
-
-  //読込終了後の処理
-  reader.onload = () => {
-    new Promise(function(resolve, reject) {
-      var data = JSON.parse(reader.result);
-      localStorage.setItem('pbv', JSON.stringify(data));
-      resolve();
-    })
-    .then(loadToLocalStorage())
-    .then(saveToLocalStorage())
-    .then(() => {
-      optionTextarea.value = '完了';
-    })
-    .catch(err => {
-      optionTextarea.value = 'データが無効です。';
-      console.error(err);
+  var myId = location.search.match(/id=(\w+)/)[1];
+  getData('https://www.pixiv.net/ajax/user/' + myId + '/illusts/bookmarks?tag=&offset=0&limit=1&rest=show')
+  .then(res => {
+    return new Promise(resolve => {
+      var data = JSON.parse(res);
+      var total = data.body.total;
+      var url = 'https://www.pixiv.net/ajax/user/' + myId + '/illusts/bookmarks?tag=&offset=0&limit=' + total + '&rest=show'
+      resolve(url);
     });
-  }
+  })
+  .then(getData)
+  .then(res => {
+    var data = JSON.parse(res);
+    convertData(data.body.works)
+    .then(data => {
+      bookmarkData = (() => {
+        if (data.bookmark) return data.bookmark;
+        return [];
+      })();
+      userData = (() => {
+        if (data.user) return data.user;
+        return {};
+      })();
+
+      var optionTextarea = document.getElementById('optionTextarea');
+      optionTextarea.value = '完了';
+    });
+  })
 }
-*/
+
+function convertData(bookmarkData) {
+  return new Promise(function(resolve, reject) {
+    var pbvData = {"bookmark":[],"user":{}};
+    bookmarkData.forEach(d => {
+      var addBookmarkData = {};
+      addBookmarkData.id = d.id;
+      addBookmarkData.title = d.title;
+      addBookmarkData.user = d.userName;
+      addBookmarkData.userId = d.userId;
+      addBookmarkData.count = d.pageCount;
+      addBookmarkData.imageUrl = d.url.match(/^.+?img\/(.+?)$/)[1];
+      addBookmarkData.userIconUrl = d.profileImageUrl;
+      addBookmarkData.ugoku = (d.illustType == 2);
+      addBookmarkData.tags = d.tags;
+      pbvData.bookmark.push(addBookmarkData);
+      pbvData.user[d.userId] = {
+        "name": d.userName,
+        "icon": d.profileImageUrl
+      };
+    });
+    resolve(pbvData);
+  });
+}
 })();
