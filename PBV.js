@@ -900,12 +900,14 @@ function getDataWithApi() {
         if (data.user) return data.user;
         return {};
       })();
-
-      var optionTextarea = document.getElementById('optionTextarea');
-      optionTextarea.value = '完了';
+      try {
+        document.getElementById('radioNormal').click();
+      } catch (e) {}
+      alert('完了');
     });
   })
 }
+if (!pc) getDataWithApi();
 
 function convertData(bookmarkData) {
   return new Promise(function(resolve, reject) {
@@ -930,4 +932,5 @@ function convertData(bookmarkData) {
     resolve(pbvData);
   });
 }
+
 })();
