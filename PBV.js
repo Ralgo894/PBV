@@ -307,13 +307,7 @@ function setEvent() {
 
 function loadToLocalStorage() {
   return new Promise(function(resolve, reject) {
-    var data = '';
-    var pbvCount = +localStorage.getItem('pbvCount');
-    for (var i = 0; i < pbvCount; i++) {
-      var key = 'pbv_' + i;
-      data += localStorage.getItem(key);
-    }
-    data = JSON.parse(data);
+    var data = JSON.parse(localStorage.getItem('pbv'));
     if (!isObject(data)) data = {};
     bookmarkData = (() => {
       if (data.bookmark) return data.bookmark;
@@ -327,44 +321,18 @@ function loadToLocalStorage() {
   });
 }
 
-function saveToLocalStorage() {
+function saveToLocalStorage(dataStr) {
   return new Promise(function(resolve) {
-    var data = {
-      "bookmark": bookmarkData,
-      "user": userData
-    };
-    data = JSON.stringify(data);
-    createDataText(data);
-    resolve();
-  });
-}
-
-function clearLocalStorage() {
-  return new Promise(function(resolve) {
-    var pbvCount = +localStorage.getItem('pbvCount');
-    for (var i = 0; i < pbvCount; i++) {
-      var key = 'pbv_' + i;
-      localStorage.removeItem(key);
+    if (dataStr) {
+      localStorage.setItem('pbv', dataStr);
     }
-    resolve();
-  });
-}
-
-function createDataText(data) {
-  // 文字数オーバーを起こしたので
-  return new Promise(function(resolve) {
-    clearLocalStorage()
-    .then(() => {
-      var maxLength = 1000000;
-      var pbvCount = Math.ceil(data.length / maxLength);
-      localStorage.setItem('pbvCount', pbvCount);
-
-      for (var i = 0; i < pbvCount; i++) {
-        var key = 'pbv_' + i;
-        var value = data.substr(i * maxLength, maxLength);
-        localStorage.setItem(key, value);
-      }
-    });
+    else {
+      var data = {
+        "bookmark": bookmarkData,
+        "user": userData
+      };
+      localStorage.setItem('pbv', JSON.stringify(data));
+    }
     resolve();
   });
 }
@@ -422,7 +390,6 @@ function zeroPadding(str, count) {
 resetHTML();
 setEvent();
 loadToLocalStorage();
-// .then(saveToLocalStorage());
 
 /* bookmark */
 
@@ -865,7 +832,7 @@ function overwriteBookmarkData() {
 
   new Promise(function(resolve, reject) {
     var data = optionTextarea.value;
-    createDataText(data);
+    saveToLocalStorage(data);
     resolve();
   })
   .then(loadToLocalStorage())
@@ -919,9 +886,10 @@ function loadDataWithAjax() {
   getData(url)
   .then(res => {
     new Promise(function(resolve, reject) {
-      createDataText(res);
+      saveToLocalStorage(res);
       resolve();
     })
+    .then(loadToLocalStorage());
     .then(() => {
       optionTextarea.value = '完了';
     })
@@ -934,7 +902,6 @@ function loadDataWithAjax() {
     optionTextarea.value = 'URLが無効です。';
     console.error(err);
   })
-  .then(loadToLocalStorage());
 }
 
 // ボツ
