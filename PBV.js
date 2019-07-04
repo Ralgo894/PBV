@@ -355,7 +355,7 @@ function createDataText(data) {
   return new Promise(function(resolve) {
     clearLocalStorage()
     .then(() => {
-      var maxLength = 2000000;
+      var maxLength = 1000000;
       var pbvCount = Math.ceil(data.length / maxLength);
       localStorage.setItem('pbvCount', pbvCount);
 
