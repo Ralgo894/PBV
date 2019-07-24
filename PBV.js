@@ -436,6 +436,10 @@ function createItem(data) {
     if (data.ugoku) return '';
     return 'display: none;';
   })();
+  var isUgoku02 = (() => {
+    if (data.ugoku) return '';
+    return '_p0';
+  })();
 
   var itemList = document.getElementById('itemList');
   var child = (() => {
@@ -464,7 +468,7 @@ function createItem(data) {
       '            <span>' + data.count + '</span>' +
       '          </div>' +
       '        </div>' +
-      '        <div data-tags="' + (data.tags.join(' ')) + '" style="background-image: url(https://i.pximg.net/c/250x250_80_a2/img-master/img/' + data.imageUrl + ');">' +
+      '        <div data-tags="' + (data.tags.join(' ')) + '" style="background-image: url(https://i.pximg.net/c/250x250_80_a2/img-master/img/' + data.img + '/' + data.id + isUgoku02 + '_square1200.jpg);">' +
       '          <svg viewBox="0 0 24 24" style="' + isUgoku + '">' +
       '            <circle cx="12" cy="12" r="10"></circle>' +
       '            <path d="M9,8.74841664 L9,15.2515834 C9,15.8038681 9.44771525,16.2515834 10,16.2515834 C10.1782928,16.2515834 10.3533435,16.2039156 10.5070201,16.1135176 L16.0347118,12.8619342 C16.510745,12.5819147 16.6696454,11.969013 16.3896259,11.4929799 C16.3034179,11.3464262 16.1812655,11.2242738 16.0347118,11.1380658 L10.5070201,7.88648243 C10.030987,7.60646294 9.41808527,7.76536339 9.13806578,8.24139652 C9.04766776,8.39507316 9,8.57012386 9,8.74841664 Z"></path>' +
@@ -486,7 +490,7 @@ function createItem(data) {
     '  <a href="https://www.pixiv.net/member_illust.php?mode=medium&illust_id=' + data.id + '" target="_blank">' +
     '    <div>' +
     '      <div class="square"></div>' +
-    '      <div class="image" data-tags="' + (data.tags.join(' ')) + '" style="background-image: url(https://i.pximg.net/c/540x540_70/img-master/img/' + data.imageUrl + ');">' +
+    '      <div class="image" data-tags="' + (data.tags.join(' ')) + '" style="background-image: url(https://i.pximg.net/c/540x540_70/img-master/img/' + data.img + '/' + data.id + isUgoku02 + '_square1200.jpg);">' +
     '        <div class="r18" style="' + isR18 + '">' +
     '          <span>R-18</span>' +
     '        </div>' +
@@ -698,8 +702,11 @@ function readBookmarkPageData() {
           if (imgItem[i].querySelector('.page-count span')) return +imgItem[i].querySelector('.page-count span').textContent;
           return 1;
         })();
-        data.imageUrl = imgElement.getAttribute('data-src').replace(/^.+?img\/(.+?)master(.+?)$/, '$1square$2');
-        data.ugoku = imgItem[i].getElementsByClassName('work')[0].classList.contains('ugoku-illust');
+        data.img = imgElement.getAttribute('data-src').match(/\d{4}\/\d{2}\/\d{2}\/\d{2}\/\d{2}\/\d{2}/)[0];
+        data.ugoku = (() => {
+          if (imgItem[i].getElementsByClassName('work')[0].classList.contains('ugoku-illust')) return 1;
+          return 0;
+        })();
         data.tags = imgElement.getAttribute('data-tags').split(' ');
         addData.push(data);
 
@@ -903,7 +910,7 @@ function getDataWithApi() {
             target.title = e.title;
             target.userId = +e.userId;
             target.count = +e.count;
-            target.imageUrl = e.imageUrl;
+            target.img = e.img;
             target.ugoku = e.ugoku;
             target.tags = e.tags;
           } catch (e) { }
@@ -932,8 +939,11 @@ function convertData(bookmarkData) {
       addBookmarkData.title = d.title;
       addBookmarkData.userId = +d.userId;
       addBookmarkData.count = +d.pageCount;
-      addBookmarkData.imageUrl = d.url.match(/^.+?img\/(.+?)$/)[1];
-      addBookmarkData.ugoku = (d.illustType == 2);
+      addBookmarkData.img = d.url.match(/\d{4}\/\d{2}\/\d{2}\/\d{2}\/\d{2}\/\d{2}/)[0];
+      addBookmarkData.ugoku = (() => {
+        if (d.illustType == 2) return 1;
+        return 0;
+      })();
       addBookmarkData.tags = d.tags;
       pbvData.bookmark.push(addBookmarkData);
       pbvData.user[d.userId] = {
