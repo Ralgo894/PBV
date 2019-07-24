@@ -40,9 +40,9 @@ var pbvBookmarkHTML = (() => {
 })();
 var pbvOptionHTML = (() => {
   if (pc) {
-    return '<div id="bookmarkAdd" class="overlayContainer"><div class="overlay none"></div><h2>ブックマークの読み込み</h2><div><div class="flex"><label><span>ページ数</span><input type="number" id="inputPageCount" value="1" min="1" max="9999"></label><a href="javascript:void(0);" id="jumpPageCount" class="aBut">移動</a><div style="flex-grow: 1;"></div><a href="javascript:void(0);" id="jumpOldPage" class="aBut">旧ブックマークページ</a><a href="javascript:void(0);" id="jumpNewPage" class="aBut">新ブックマークページ</a></div><iframe id="iframeBookmark" src="" width="100%" height="320px"></iframe></div><div class="mode flex"><div style="flex-grow: 1;"></div><a href="javascript:void(0);" id="bookmarkReadStrat" class="aBut" style="padding: 8px 14px;">開始</a></div></div><div id="dataOption"><h2>データの管理</h2><div class="textareaContainer"><textarea id="optionTextarea"></textarea></div><div class="butContainer flex"><a href="javascript:void(0);" id="butDataShow" class="aBut">データの表示</a><a href="javascript:void(0);" id="butDataOverwrite" class="aBut">データの上書き</a><a href="javascript:void(0);" id="butLoadWithAjax" class="aBut">データの読み込み</a><a href="javascript:void(0);" id="butGetDataWithApi" class="aBut">データの取得</a></div></div>';
+    return '<div id="bookmarkAdd" class="overlayContainer"><div class="overlay none"></div><h2>ブックマークの読み込み</h2><div><div class="flex"><label><span>ページ数</span><input type="number" id="inputPageCount" value="1" min="1" max="9999"></label><a href="javascript:void(0);" id="jumpPageCount" class="aBut">移動</a><div style="flex-grow: 1;"></div><a href="javascript:void(0);" id="jumpOldPage" class="aBut">旧ブックマークページ</a><a href="javascript:void(0);" id="jumpNewPage" class="aBut">新ブックマークページ</a></div><iframe id="iframeBookmark" src="" width="100%" height="320px"></iframe></div><div class="mode flex"><div style="flex-grow: 1;"></div><a href="javascript:void(0);" id="bookmarkReadStrat" class="aBut" style="padding: 8px 14px;">開始</a></div></div><div id="dataOption"><h2>データの管理</h2><div class="textareaContainer"><textarea id="optionTextarea"></textarea></div><div class="butContainer flex"><a href="javascript:void(0);" id="butDataShow" class="aBut">データの表示</a><a href="javascript:void(0);" id="butDataSave" class="aBut">データの保存</a><a href="javascript:void(0);" id="butLoadWithAjax" class="aBut">データの読み込み</a><a href="javascript:void(0);" id="butGetDataWithApi" class="aBut">データの取得</a></div></div>';
   }
-  return '<div id="bookmarkAdd" class="overlayContainer"><div class="overlay none"></div><h2>ブックマークの読み込み</h2><div class="flex"><a href="javascript:void(0);" id="jumpOldPage" class="aBut">旧ブックマークページ</a><a href="javascript:void(0);" id="jumpNewPage" class="aBut">新ブックマークページ</a></div><div class="flex"><label><span>ページ数</span><input type="number" id="inputPageCount" value="1" min="1" max="9999"></label><div style="flex-grow: 1;"></div><a href="javascript:void(0);" id="jumpPageCount" class="aBut">移動</a></div><div class="iframeContainer"><iframe id="iframeBookmark" src="" width="100%" height="320px"></iframe></div><div class="mode flex"><div style="flex-grow: 1;"></div><a href="javascript:void(0);" id="bookmarkReadStrat" class="aBut" style="padding: 8px 14px;">開始</a><div style="flex-grow: 1;"></div></div></div><div id="dataOption"><h2>データの管理</h2><div class="textareaContainer"><textarea id="optionTextarea"></textarea></div><div class="butContainer flex"><a href="javascript:void(0);" id="butDataShow" class="aBut">データの表示</a><a href="javascript:void(0);" id="butDataOverwrite" class="aBut">データの上書き</a><a href="javascript:void(0);" id="butLoadWithAjax" class="aBut">データの読み込み</a><a href="javascript:void(0);" id="butGetDataWithApi" class="aBut">データの取得</a></div></div>';
+  return '<div id="bookmarkAdd" class="overlayContainer"><div class="overlay none"></div><h2>ブックマークの読み込み</h2><div class="flex"><a href="javascript:void(0);" id="jumpOldPage" class="aBut">旧ブックマークページ</a><a href="javascript:void(0);" id="jumpNewPage" class="aBut">新ブックマークページ</a></div><div class="flex"><label><span>ページ数</span><input type="number" id="inputPageCount" value="1" min="1" max="9999"></label><div style="flex-grow: 1;"></div><a href="javascript:void(0);" id="jumpPageCount" class="aBut">移動</a></div><div class="iframeContainer"><iframe id="iframeBookmark" src="" width="100%" height="320px"></iframe></div><div class="mode flex"><div style="flex-grow: 1;"></div><a href="javascript:void(0);" id="bookmarkReadStrat" class="aBut" style="padding: 8px 14px;">開始</a><div style="flex-grow: 1;"></div></div></div><div id="dataOption"><h2>データの管理</h2><div class="textareaContainer"><textarea id="optionTextarea"></textarea></div><div class="butContainer flex"><a href="javascript:void(0);" id="butDataShow" class="aBut">データの表示</a><a href="javascript:void(0);" id="butDataSave" class="aBut">データの保存</a><a href="javascript:void(0);" id="butLoadWithAjax" class="aBut">データの読み込み</a><a href="javascript:void(0);" id="butGetDataWithApi" class="aBut">データの取得</a></div></div>';
 })();
 
 var page = 'bookmark';
@@ -156,8 +156,9 @@ function changePage() {
     reading = false;
     document.getElementById("optionTextarea").placeholder =
     "「データの表示」　ここに現在のデータを表示します。\r\n\r\n" +
-    "「データの上書き」　ここに書かれたデータを現在のデータに上書きします。\r\n\r\n" +
-    "「データの読み込み」　ここに書かれたURLのファイル内容を現在のデータに上書きします。（dropboxの共有URLでも可）";
+    "「データの保存」　データをストレージに保存します。また、ここに書かれたデータを現在のデータに上書き保存します。\r\n\r\n" +
+    "「データの読み込み」　ここに書かれたURLのファイル内容を上書き保存します。（dropboxの共有URLでも可）\r\n\r\n" +
+    "「データの取得」　APIを用いてデータを取得します。取得後、上書き または 情報の更新ができます。 ※ストレージに保存はしません。\r\n\r\n";
   }
 
 };
@@ -221,16 +222,23 @@ function setEvent() {
     element.addEventListener('click', () => {
       bookmarkAddPageChange();
     }, false);
+    // inputPageCount keydown
+    element = document.getElementById('inputPageCount');
+    element.addEventListener('keydown', (e) => {
+      if (e.keyCode == 13) bookmarkAddPageChange();
+    }, false);
     // jumpOldPage
     element = document.getElementById('jumpOldPage');
     element.addEventListener('click', () => {
       bookmarkAddPage = 'old';
+      document.getElementById('inputPageCount').value = 1;
       bookmarkAddPageChange();
     }, false);
     // jumpNewPage
     element = document.getElementById('jumpNewPage');
     element.addEventListener('click', () => {
       bookmarkAddPage = 'new';
+      document.getElementById('inputPageCount').value = 1;
       bookmarkAddPageChange();
     }, false);
 
@@ -279,8 +287,8 @@ function setEvent() {
     element.addEventListener('click', () => {
       showBookmarkData();
     }, false);
-    // butDataOverwrite
-    element = document.getElementById('butDataOverwrite');
+    // butDataSave
+    element = document.getElementById('butDataSave');
     element.addEventListener('click', () => {
       overwriteBookmarkData();
     }, false);
@@ -456,7 +464,7 @@ function createItem(data) {
       '            <span>' + data.count + '</span>' +
       '          </div>' +
       '        </div>' +
-      '        <div style="background-image: url(https://i.pximg.net/c/250x250_80_a2/img-master/img/' + data.imageUrl + ');">' +
+      '        <div data-tags="' + (data.tags.join(' ')) + '" style="background-image: url(https://i.pximg.net/c/250x250_80_a2/img-master/img/' + data.imageUrl + ');">' +
       '          <svg viewBox="0 0 24 24" style="' + isUgoku + '">' +
       '            <circle cx="12" cy="12" r="10"></circle>' +
       '            <path d="M9,8.74841664 L9,15.2515834 C9,15.8038681 9.44771525,16.2515834 10,16.2515834 C10.1782928,16.2515834 10.3533435,16.2039156 10.5070201,16.1135176 L16.0347118,12.8619342 C16.510745,12.5819147 16.6696454,11.969013 16.3896259,11.4929799 C16.3034179,11.3464262 16.1812655,11.2242738 16.0347118,11.1380658 L10.5070201,7.88648243 C10.030987,7.60646294 9.41808527,7.76536339 9.13806578,8.24139652 C9.04766776,8.39507316 9,8.57012386 9,8.74841664 Z"></path>' +
@@ -468,9 +476,9 @@ function createItem(data) {
       '  <a href="https://www.pixiv.net/member_illust.php?mode=medium&illust_id=' + data.id + '" target="_blank">' + data.title + '</a>' +
       '  <div>' +
       '    <div>' +
-      '      <a href="https://www.pixiv.net/member.php?id=' + data.userId + '" target="_blank" style="background-image: url(' + data.userIconUrl + ');"></a>' +
+      '      <a href="https://www.pixiv.net/member.php?id=' + data.userId + '" target="_blank" style="background-image: url(' + userData[data.userId].icon + ');"></a>' +
       '    </div>' +
-      '    <a href="https://www.pixiv.net/member.php?id=' + data.userId + '" target="_blank">' + data.user + '</a>' +
+      '    <a href="https://www.pixiv.net/member.php?id=' + data.userId + '" target="_blank">' + userData[data.userId].name + '</a>' +
       '  </div>' +
       '</div>';
     }
@@ -478,7 +486,7 @@ function createItem(data) {
     '  <a href="https://www.pixiv.net/member_illust.php?mode=medium&illust_id=' + data.id + '" target="_blank">' +
     '    <div>' +
     '      <div class="square"></div>' +
-    '      <div class="image" style="background-image: url(https://i.pximg.net/c/540x540_70/img-master/img/' + data.imageUrl + ');">' +
+    '      <div class="image" data-tags="' + (data.tags.join(' ')) + '" style="background-image: url(https://i.pximg.net/c/540x540_70/img-master/img/' + data.imageUrl + ');">' +
     '        <div class="r18" style="' + isR18 + '">' +
     '          <span>R-18</span>' +
     '        </div>' +
@@ -683,28 +691,26 @@ function readBookmarkPageData() {
       try {
         var imgElement = imgItem[i].getElementsByClassName('ui-scroll-view')[0];
         var data = {};
-        data.id = imgElement.getAttribute('data-id');
+        data.id = +imgElement.getAttribute('data-id');
         data.title = imgItem[i].getElementsByClassName('title')[0].getAttribute('title');
-        data.user = imgItem[i].getElementsByClassName('user')[0].getAttribute('data-user_name');
-        data.userId = imgItem[i].getElementsByClassName('user')[0].getAttribute('data-user_id');
+        data.userId = +imgItem[i].getElementsByClassName('user')[0].getAttribute('data-user_id');
         data.count = (() => {
-          if (imgItem[i].querySelector('.page-count span')) return imgItem[i].querySelector('.page-count span').textContent;
-          return '1';
+          if (imgItem[i].querySelector('.page-count span')) return +imgItem[i].querySelector('.page-count span').textContent;
+          return 1;
         })();
         data.imageUrl = imgElement.getAttribute('data-src').replace(/^.+?img\/(.+?)master(.+?)$/, '$1square$2');
-        data.userIconUrl = '';
         data.ugoku = imgItem[i].getElementsByClassName('work')[0].classList.contains('ugoku-illust');
         data.tags = imgElement.getAttribute('data-tags').split(' ');
         addData.push(data);
 
         if (userData[data.userId] == null) {
           userData[data.userId] = {
-            "name": data.user,
+            "name": imgItem[i].getElementsByClassName('user')[0].getAttribute('data-user_name'),
             "icon": ""
           };
         }
         else {
-          userData[data.userId].name = data.user;
+          userData[data.userId].name = imgItem[i].getElementsByClassName('user')[0].getAttribute('data-user_name');
         }
       }
       catch (e) {
@@ -748,7 +754,6 @@ function readBookmarkPageData() {
       }
       resolve();
     })
-    .then(setUserData())
     .then(saveToLocalStorage())
     .then(() => {
       document.getElementById('bookmarkReadStrat').click();
@@ -785,21 +790,6 @@ if (bookmarkData.length < 1) return;
   }
   addData.splice(overIndex, addData.length - overIndex);
   bookmarkData = addData.concat(bookmarkData);
-}
-
-function setUserData() {
-  new Promise(function(resolve, reject) {
-    if (bookmarkData == []) return;
-    for (key in userData) {
-      bookmarkData.forEach((e) => {
-        if (e.userId == key) {
-          if (e.user != userData[key].name) e.user = userData[key].name;
-          if (e.userIconUrl != userData[key].icon) e.userIconUrl = userData[key].icon;
-        }
-      });
-    }
-    resolve();
-  });
 }
 
 function showBookmarkData() {
@@ -874,7 +864,7 @@ function loadDataWithAjax() {
 }
 
 function getDataWithApi() {
-  var confirm = window.confirm('データを更新します。');
+  var confirm = window.confirm('データを取得しますか。');
   if (!confirm) return;
 
   var myId = location.search.match(/id=(\w+)/)[1];
@@ -892,14 +882,38 @@ function getDataWithApi() {
     var data = JSON.parse(res);
     convertData(data.body.works)
     .then(data => {
-      bookmarkData = (() => {
-        if (data.bookmark) return data.bookmark;
-        return [];
-      })();
-      userData = (() => {
-        if (data.user) return data.user;
-        return {};
-      })();
+      if (window.confirm('データを上書きしますか。')) {
+        bookmarkData = (() => {
+          if (data.bookmark) return data.bookmark;
+          return [];
+        })();
+        userData = (() => {
+          if (data.user) return data.user;
+          return {};
+        })();
+      }
+      else if (window.confirm('データを更新しますか。')) {
+        data.bookmark.forEach(e => {
+          try {
+            var target = bookmarkData.find(targetData => {
+                return (targetData.id == e.id);
+            });
+
+            target.id = +e.id;
+            target.title = e.title;
+            target.userId = +e.userId;
+            target.count = +e.count;
+            target.imageUrl = e.imageUrl;
+            target.ugoku = e.ugoku;
+            target.tags = e.tags;
+          } catch (e) { }
+        });
+
+        userData = (() => {
+          if (data.user) return data.user;
+          return {};
+        })();
+      }
       try {
         document.getElementById('radioNormal').click();
       } catch (e) {}
@@ -914,13 +928,11 @@ function convertData(bookmarkData) {
     var pbvData = {"bookmark":[],"user":{}};
     bookmarkData.forEach(d => {
       var addBookmarkData = {};
-      addBookmarkData.id = d.id;
+      addBookmarkData.id = +d.id;
       addBookmarkData.title = d.title;
-      addBookmarkData.user = d.userName;
-      addBookmarkData.userId = d.userId;
-      addBookmarkData.count = d.pageCount;
+      addBookmarkData.userId = +d.userId;
+      addBookmarkData.count = +d.pageCount;
       addBookmarkData.imageUrl = d.url.match(/^.+?img\/(.+?)$/)[1];
-      addBookmarkData.userIconUrl = d.profileImageUrl;
       addBookmarkData.ugoku = (d.illustType == 2);
       addBookmarkData.tags = d.tags;
       pbvData.bookmark.push(addBookmarkData);
