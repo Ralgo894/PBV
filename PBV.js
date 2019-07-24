@@ -495,11 +495,16 @@ function createItem(data) {
     '          <span>R-18</span>' +
     '        </div>' +
     '        <div class="count" style="' + isCount + '">' +
-    '          <img src="https://s.pximg.net/touch/touch/js/bundle/3aae66ac7716524f2fe9a06e93437786.svg">' +
+    '          <svg xmlns="http://www.w3.org/2000/svg" width="9" height="9" viewBox="0 0 9 9">' +
+    '            <path fill="#fff" d="M8 2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1h4a2 2 0 002-2V2zM1 0h5a1 1 0 011 1v5a1 1 0 01-1 1H1a1 1 0 01-1-1V1a1 1 0 011-1z" fill-rule="evenodd"/>' +
+    '          </svg>' +
     '          <span>' + data.count + '</span>' +
     '        </div>' +
     '        <div class="ugoku" style="' + isUgoku + '">' +
-    '          <img src="https://s.pximg.net/touch/touch/js/bundle/4f2163600b6b407f10d6c835140d1fcb.svg">' +
+    '          <svg width="48" height="48" viewBox="0 0 24 24" fill="none">' +
+    '            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" fill="rgba(0, 0, 0, 0.32)"></path>' +
+    '            <path fill-rule="evenodd" clip-rule="evenodd" d="M10.507 7.88647C9.84039 7.49433 9 7.97499 9 8.7484L9 15.2516C9 16.025 9.84039 16.5056 10.507 16.1135L16.0347 12.8619C16.692 12.4753 16.692 11.5247 16.0347 11.1381L10.507 7.88647Z" fill="#fff"></path>' +
+    '          </svg>' +
     '        </div>' +
     '      </div>' +
     '    </div>' +
