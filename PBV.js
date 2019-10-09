@@ -885,14 +885,17 @@ function getDataWithApi() {
     return new Promise(resolve => {
       var data = JSON.parse(res);
       var total = data.body.total;
-      var url = 'https://www.pixiv.net/ajax/user/' + myId + '/illusts/bookmarks?tag=&offset=0&limit=' + total + '&rest=show'
-      resolve(url);
+      var option = {
+        "myId": myId,
+        "total": total
+      };
+
+      resolve(option);
     });
   })
-  .then(getData)
+  .then(loopGetData)
   .then(res => {
-    var data = JSON.parse(res);
-    convertData(data.body.works)
+    convertData(res)
     .then(data => {
       if (window.confirm('データを上書きしますか。')) {
         bookmarkData = (() => {
@@ -934,6 +937,44 @@ function getDataWithApi() {
   })
 }
 // if (!pc) getDataWithApi();
+
+function loopGetData(option) {
+  return new Promise(function(resolve_0, reject_0) {
+    var optionTextarea = document.getElementById('optionTextarea');
+    optionTextarea.value = 'ループ開始';
+
+    var index = 0;
+    var maxCount = Math.ceil(option.total / 100);
+
+    var allData = [];
+
+    var loop = () => {
+      return new Promise(function(resolve_1, reject_1) {
+        optionTextarea.value = (index + 1) + '/' + maxCount;
+
+        var offset = 100 * index;
+        var url = 'https://www.pixiv.net/ajax/user/' + option.myId + '/illusts/bookmarks?tag=&offset=' + offset + '&limit=100&rest=show';
+        resolve_1(url);
+      })
+      .then(getData)
+      .then(res => {
+        var data = JSON.parse(res);
+        var works = data.body.works;
+        allData = allData.concat(works);
+        index++;
+
+        if (index < maxCount) {
+          loop();
+        }
+        else {
+          optionTextarea.value = 'ループ終了';
+          resolve_0(allData);
+        }
+      });
+    };
+    loop();
+  });
+}
 
 function convertData(bookmarkData) {
   return new Promise(function(resolve, reject) {
