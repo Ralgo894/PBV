@@ -433,27 +433,47 @@ var documentElement = (() => {
 
 var pbvStyle = (() => {
   if (pc) {
-    return '  #pbvContainer .flex {display: flex;}#pbvContainer .none {display: none;}#pbvContainer .aBut {display: block;margin: auto 0 auto 5px;padding: 3px 6px;border-radius: 16px;background-color: #eee;color: #666;cursor: pointer;text-align: center;text-decoration: none;}#pbvContainer a {cursor: pointer;}#pbvNav .navContents {margin-top: -1px;padding: 13px 16px 16px;font-weight: 700;font-size: 16px;color: #999;text-decoration: none;border-top: 4px solid transparent;-webkit-transition: color .2s;transition: color .2s;}#pbvNav .navContents:hover {color: #333;}#pbvNav .navContents.active {border-top: 4px solid #0096fa;color: #333;}#pbvMenu {margin: 30px 0;padding: 0;}#pbvContainer .mode label {display: block;margin: auto 5px auto 0;cursor: pointer;}#pbvContainer .mode input[type=radio] {cursor: pointer;}#pbvContainer .mode input[type=text] {-webkit-box-flex: 0;-webkit-flex: none;flex: none;padding: 3px 5px;width: 163px;height: 20px;border: 1px solid #becad7;font-size: 14px;line-height: 1;color: #555;border-radius: 0;outline: 0;-webkit-appearance: none;background-color: #fff;}#searchBut {-webkit-box-flex: 0;-webkit-flex: none;flex: none;width: 50px;height: 28px;background-color: #becad7;background-image: url("https://s.pximg.net/www/js/spa/00545159b33bfc46a2dc0eff7ef34f5b.png");background-position: 50%;background-repeat: no-repeat;background-size: 16px 16px;border: none;cursor: pointer;}#searchBut:hover {background-color: #ced7e1;}#itemList {margin: 0 -12px -24px;padding: 0;display: flex;flex-wrap: wrap;align-content: flex-start;list-style: none;}#itemList li {margin: 0 12px 24px;}#itemList li>div {width: 184px;margin: 0px;}#itemList li>div>div:nth-child(1) {position: relative;margin-bottom: 4px;}#itemList li>div>div:nth-child(1)>div {position: relative;width: 184px;height: 184px;}#itemList li>div>div:nth-child(1)>div>a {text-decoration: none;}#itemList li>div>div:nth-child(1)>div>a>div:nth-child(1) {position: absolute;top: 0px;left: 0px;right: 0px;box-sizing: border-box;display: flex;z-index: 1;padding: 4px 4px 0px;}#itemList li>div>div:nth-child(1)>div>a>div:nth-child(1)>div:nth-child(1) {display: flex;flex-flow: row wrap;}#itemList li>div>div:nth-child(1)>div>a>div:nth-child(1)>div:nth-child(1)>div {margin: 2px;}#itemList li>div>div:nth-child(1)>div>a>div:nth-child(1)>div:nth-child(1)>div>div {color: rgb(255, 255, 255);font-weight: bold;font-size: 10px;line-height: 1;padding: 3px 6px;border-radius: 3px;background: rgb(255, 64, 96);}#itemList li>div>div:nth-child(1)>div>a>div:nth-child(1)>div:nth-child(2) {display: flex;-webkit-box-align: center;align-items: center;box-sizing: border-box;margin-left: auto;height: 20px;color: rgb(255, 255, 255);font-size: 10px;line-height: 12px;font-weight: bold;flex: 0 0 auto;padding: 4px 6px;background: rgba(0, 0, 0, 0.32);border-radius: 10px;}#itemList li>div>div:nth-child(1)>div>a>div:nth-child(1)>div:nth-child(2)>svg {stroke: none;line-height: 0;font-size: 0px;width: 9px;height: 10px;fill: currentcolor;}#itemList li>div>div:nth-child(1)>div>a>div:nth-child(1)>div:nth-child(2)>span {margin-left: 2px;}#itemList li>div>div:nth-child(1)>div>a>div:nth-child(2) {display: flex;-webkit-box-align: center;align-items: center;-webkit-box-pack: center;justify-content: center;width: 100%;height: 100%;background-size: cover;background-color: rgb(255, 255, 255);border-radius: 4px;background-position: center center;background-repeat: no-repeat;}#itemList li>div>div:nth-child(1)>div>a>div:nth-child(2)::before {content: "";position: absolute;display: block;top: 0px;left: 0px;width: 100%;height: 100%;background-color: rgba(0, 0, 0, 0.02);}#itemList li>div>div:nth-child(1)>div>a:hover>div:nth-child(2) {opacity: 0.8;}#itemList li>div>div:nth-child(1)>div>a>div:nth-child(2)>svg {width: 48px;height: 48px;stroke: none;fill: rgb(255, 255, 255);line-height: 0;font-size: 0px;vertical-align: middle;}#itemList li>div>div:nth-child(1)>div>a>div:nth-child(2)>svg circle {fill: rgb(0, 0, 0);fill-opacity: 0.4;}#itemList li>div>a:nth-child(2) {display: inline-block;max-width: 100%;text-overflow: ellipsis;white-space: nowrap;line-height: 22px;font-size: 14px;font-weight: bold;color: rgb(31, 31, 31);overflow: hidden;text-decoration: none;transition: color 0.2s ease 0s;}#itemList li>div>a:nth-child(2):visited {color: rgb(173, 173, 173);}#itemList li>div>a:nth-child(2):hover {color: rgb(92, 92, 92);}#itemList li>div>div:nth-child(3) {display: flex;-webkit-box-align: center;align-items: center;width: 100%;}#itemList li>div>div:nth-child(3)>div {margin-right: 4px;}#itemList li>div>div:nth-child(3)>div>a {position: relative;display: block;width: 16px;height: 16px;border-radius: 50%;background-size: cover;background-position: top;-webkit-box-flex: 0;-webkit-flex: none;flex: none;}#itemList li>div>div:nth-child(3)>div>a:before {position: absolute;display: block;content: "";top: 0;left: 0;width: 100%;height: 100%;background-color: rgba(0,0,0,.02);}#itemList li>div>div:nth-child(3)>a {display: inline-block;line-height: 16px;font-size: 12px;color: rgb(173, 173, 173);text-overflow: ellipsis;white-space: nowrap;text-decoration: none;overflow: hidden;}#iframeBookmark {margin: 16px 0;}#bookmarkReadStrat {padding: 8px 14px;z-index: 5;}#pbvContainer .overlayContainer {position: relative;padding: 10px 0;}#pbvContainer .overlay {position: absolute;left: -1%;width: 102%;height: 100%;z-index: 2;background: rgba(0,0,0,.2);}#dataOption .textareaContainer {width: 100%;height: 320px;}#optionTextarea {width: 100%;height: 100%;}#dataOption .butContainer {margin: 20px 0;padding: 0 0 10px 0;}#dataOption .aBut {margin: auto 5px auto 0;}';
+return '#pbvContainer .flex{display:flex}#pbvContainer .none{display:none}#pbvContainer .aBut{display:block;margin:auto 0 auto 5px;padding:3px 6px;border-radius:16px;background-color:#eee;color:#666;cursor:pointer;text-align:center;text-decoration:none}#pbvContainer a{cursor:pointer}#pbvNav .navContents{margin-top:-1px;padding:13px 16px 16px;font-weight:700;font-size:16px;color:#999;text-decoration:none;border-top:4px solid transparent;-webkit-transition:color .2s;transition:color .2s}#pbvNav .navContents:hover{color:#333}#pbvNav .navContents.active{border-top:4px solid #0096fa;color:#333}#pbvMenu{margin:30px 0;padding:0}#pbvContainer .mode label{display:block;margin:auto 5px auto 0;cursor:pointer}#pbvContainer .mode input[type=radio]{cursor:pointer}#pbvContainer .mode input[type=text]{-webkit-box-flex:0;-webkit-flex:none;flex:none;padding:3px 5px;width:163px;height:20px;border:1px solid #becad7;font-size:14px;line-height:1;color:#555;border-radius:0;outline:0;-webkit-appearance:none;background-color:#fff}#searchBut{-webkit-box-flex:0;-webkit-flex:none;flex:none;width:50px;height:28px;background-color:#becad7;background-image:url(https://s.pximg.net/www/js/spa/00545159b33bfc46a2dc0eff7ef34f5b.png);background-position:50%;background-repeat:no-repeat;background-size:16px 16px;border:none;cursor:pointer}#searchBut:hover{background-color:#ced7e1}#itemList{margin:0 -12px -24px;padding:0;display:flex;flex-wrap:wrap;align-content:flex-start;list-style:none}#itemList li{margin:0 12px 24px}#itemList li>div{width:184px;margin:0}#itemList li>div>div:nth-child(1){position:relative;margin-bottom:4px}#itemList li>div>div:nth-child(1)>div{position:relative;width:184px;height:184px}#itemList li>div>div:nth-child(1)>div>a{text-decoration:none}#itemList li>div>div:nth-child(1)>div>a>div:nth-child(1){position:absolute;top:0;left:0;right:0;box-sizing:border-box;display:flex;z-index:1;padding:4px 4px 0}#itemList li>div>div:nth-child(1)>div>a>div:nth-child(1)>div:nth-child(1){display:flex;flex-flow:row wrap}#itemList li>div>div:nth-child(1)>div>a>div:nth-child(1)>div:nth-child(1)>div{margin:2px}#itemList li>div>div:nth-child(1)>div>a>div:nth-child(1)>div:nth-child(1)>div>div{color:rgb(255,255,255);font-weight:700;font-size:10px;line-height:1;padding:3px 6px;border-radius:3px;background:rgb(255,64,96)}#itemList li>div>div:nth-child(1)>div>a>div:nth-child(1)>div:nth-child(2){display:flex;-webkit-box-align:center;align-items:center;box-sizing:border-box;margin-left:auto;height:20px;color:rgb(255,255,255);font-size:10px;line-height:12px;font-weight:700;flex:0 0 auto;padding:4px 6px;background:rgba(0,0,0,.32);border-radius:10px}#itemList li>div>div:nth-child(1)>div>a>div:nth-child(1)>div:nth-child(2)>svg{stroke:none;line-height:0;font-size:0;width:9px;height:10px;fill:currentcolor}#itemList li>div>div:nth-child(1)>div>a>div:nth-child(1)>div:nth-child(2)>span{margin-left:2px}#itemList li>div>div:nth-child(1)>div>a>div:nth-child(2){display:flex;-webkit-box-align:center;align-items:center;-webkit-box-pack:center;justify-content:center;width:100%;height:100%;background-size:cover;background-color:rgb(255,255,255);border-radius:4px;background-position:center center;background-repeat:no-repeat}#itemList li>div>div:nth-child(1)>div>a>div:nth-child(2)::before{content:"";position:absolute;display:block;top:0;left:0;width:100%;height:100%;background-color:rgba(0,0,0,.02)}#itemList li>div>div:nth-child(1)>div>a:hover>div:nth-child(2){opacity:.8}#itemList li>div>div:nth-child(1)>div>a>div:nth-child(2)>svg{width:48px;height:48px;stroke:none;fill:rgb(255,255,255);line-height:0;font-size:0;vertical-align:middle}#itemList li>div>div:nth-child(1)>div>a>div:nth-child(2)>svg circle{fill:rgb(0,0,0);fill-opacity:.4}#itemList li>div>a:nth-child(2){display:inline-block;max-width:100%;text-overflow:ellipsis;white-space:nowrap;line-height:22px;font-size:14px;font-weight:700;color:rgb(31,31,31);overflow:hidden;text-decoration:none;transition:color 0.2s ease 0s}#itemList li>div>a:nth-child(2):visited{color:rgb(173,173,173)}#itemList li>div>a:nth-child(2):hover{color:rgb(92,92,92)}#itemList li>div>div:nth-child(3){display:flex;-webkit-box-align:center;align-items:center;width:100%}#itemList li>div>div:nth-child(3)>div{margin-right:4px}#itemList li>div>div:nth-child(3)>div>a{position:relative;display:block;width:16px;height:16px;border-radius:50%;background-size:cover;background-position:top;-webkit-box-flex:0;-webkit-flex:none;flex:none}#itemList li>div>div:nth-child(3)>div>a:before{position:absolute;display:block;content:"";top:0;left:0;width:100%;height:100%;background-color:rgba(0,0,0,.02)}#itemList li>div>div:nth-child(3)>a{display:inline-block;line-height:16px;font-size:12px;color:rgb(173,173,173);text-overflow:ellipsis;white-space:nowrap;text-decoration:none;overflow:hidden}#setInfo .title{text-align:center}#setInfo .title h1{margin:5px 0}#setInfo .title h2{margin:5px 0;font-size:18px}#setInfo .imageContainer{padding:20px;background:#fafafa;border-radius:5px}#setInfo .mainImage{text-align:center}#setInfo .mainImage img{max-width:100%;max-height:480px;cursor:pointer}#setInfo .mainImage img.large{max-height:100%}#setInfo .imageList{overflow-x:auto;overflow-y:visible}#setInfo .imageList .container{display:flex;margin:auto;padding:10px 80px 0}#setInfo .imageList .container div{width:144px;height:144px;margin:0 4px;background-size:cover;background-color:rgb(255,255,255);border-radius:4px;background-position:center center;background-repeat:no-repeat}#setInfo .imageList .container div.selected{opacity:.5}#setInfo .formContainer{margin:20px 0 0;display:flex}#setInfo .formContainer .works>div,#setInfo .formContainer .tag>div{margin:10px 0;padding:13px 20px;line-height:24px;background:#fafafa;border-radius:5px}#setInfo .formContainer .works{flex-grow:1}#setInfo .formContainer .works dl{margin:0;display:flex}#setInfo .formContainer .works dt{width:180px}#setInfo .formContainer .works dd{margin:0;flex-grow:1}#setInfo .formContainer .works dd ul{margin:0;padding:0;display:flex;list-style-type:none}#setInfo .formContainer .works dd>ul + ul{margin:8px 0 0}#setInfo .formContainer .works dd ul li{margin:0 40px 0 0}#setInfo .formContainer .works dd ul.smallMargin li{margin:0 10px 0 0}#setInfo .formContainer .works dd ul li input[type="checkebox"],#setInfo .formContainer .works dd ul li input[type="radio"]{margin:0 4px 0 0}#setInfo .formContainer .works dd ul.impressionsList{flex-wrap:wrap}#setInfo .formContainer .works dd ul.impressionsList li{color:#5e9ece}#setInfo .impressionsInput select{min-width:100px}#setInfo .formContainer .tag{margin-left:20px;width:430px}#setInfo .formContainer .tag .tagConatiner dl{display:flex}#setInfo .formContainer .tag .tagConatiner dt{flex-grow:1}#setInfo .formContainer dt span{color:#5e9ece}#setInfo .formContainer dt span.typeTitle{color:red}#setInfo .formContainer dt span.typeCharacter{color:#0a0}#setInfo .formContainer dt span.typeUsers{color:#a0a}#iframeBookmark{margin:16px 0}#bookmarkReadStrat{padding:8px 14px;z-index:5}#pbvContainer .overlayContainer{position:relative;padding:10px 0}#pbvContainer .overlay{position:absolute;left:-1%;width:102%;height:100%;z-index:2;background:rgba(0,0,0,.2)}#dataOption .textareaContainer{width:100%;height:320px}#optionTextarea{width:100%;height:100%}#dataOption .butContainer{margin:20px 0;padding:0 0 10px 0}#dataOption .aBut{margin:auto 5px auto 0}';
   }
-  return '#pbvContainer .flex {display: flex;flex-wrap: wrap;}#pbvContainer .none {display: none;}#pbvContainer .aBut {display: block;margin: auto 0 auto 5px;padding: 3px 6px;border-radius: 16px;background-color: #eee;color: #666;cursor: pointer;text-align: center;text-decoration: none;}#pbvMenu {margin: 30px 0;padding: 0;}#pbvContainer .mode label {margin: auto 5px auto 0;cursor: pointer;}#pbvContainer .mode input {cursor: pointer;}#searchBut {-webkit-box-flex: 0;-webkit-flex: none;flex: none;width: 50px;height: 32px;margin: auto;background-color: #becad7;background-image: url("https://s.pximg.net/www/js/spa/00545159b33bfc46a2dc0eff7ef34f5b.png");background-position: 50%;background-repeat: no-repeat;background-size: 16px 16px;border: none;cursor: pointer;}#itemList>div {width: 50%;display: inline-block;position: relative;}#itemList>div>div {display: inline-block;box-sizing: border-box;position: relative;width: 100%;vertical-align: bottom;}#itemList>div>div>a>div {width: 100%;height: 100%;position: relative;background: #fff;overflow: hidden;}#itemList>div>div>a>div>div.square {display: block;height: 0;width: 100%;padding-bottom: 100%;opacity: 0;}#itemList>div>div>a>div>div.image {position: absolute;top: 0;left: 0;width: 100%;height: 100%;background-size: cover;}#itemList>div>div>a>div>div.image>div.count {position: absolute;top: 4px;right: 4px;display: inline-block;margin: 0;padding: 0 6px;line-height: 19px;color: #fff;background: rgba(0,0,0,.4);border-radius: 20px;font-size: 10px;font-weight: 700;}#itemList>div>div>a>div>div.image>div.count>img {vertical-align: middle;height: 9px;margin-right: 3px;}#itemList>div>div>a>div>div.image>div.r18 {position: absolute;top: 2px;left: 4px;display: inline-block;}#itemList>div>div>a>div>div.image>div.r18>span {display: inline-block;font-size: 10px;line-height: 10px;font-weight: 700;padding: 3px 6px;border-radius: 3px;color: rgb(255, 255, 255);background: rgb(255, 64, 96);}#itemList>div>div>a>div>div.image>div.ugoku {position: absolute;top: 50%;left: 50%;-webkit-transform: translateX(-50%) translateY(-50%);transform: translateX(-50%) translateY(-50%);}#itemList>div>div>a>div>div.image>div.ugoku>img {position: absolute;top: 50%;left: 50%;height: 45%;-webkit-transform: translateX(-37.5%) translateY(-50%);transform: translateX(-37.5%) translateY(-50%);}#bookmarkAdd .aBut {margin: 5px;flex-grow: 1;}#bookmarkAdd label {margin: auto;}#bookmarkAdd .iframeContainer {width: 100%;height: 320px;margin: 16px 0;overflow: scroll;}#pbvContainer .overlayContainer {position: relative;padding: 10px 0;}#pbvContainer .overlay {position: absolute;left: -1%;width: 102%;height: 100%;z-index: 2;background: rgba(0,0,0,.2);}#bookmarkReadStrat {padding: 8px 14px;z-index: 5;}#dataOption .textareaContainer {width: 100%;height: 320px;}#optionTextarea {width: 100%;height: 100%;}#dataOption .butContainer {margin: 20px 0;padding: 0 0 10px 0;}#dataOption .aBut {margin: 8px;}';
+  else {
+    return '#pbvContainer .flex {display: flex;flex-wrap: wrap;}#pbvContainer .none {display: none;}#pbvContainer .aBut {display: block;margin: auto 0 auto 5px;padding: 3px 6px;border-radius: 16px;background-color: #eee;color: #666;cursor: pointer;text-align: center;text-decoration: none;}#pbvMenu {margin: 30px 0;padding: 0;}#pbvContainer .mode label {margin: auto 5px auto 0;cursor: pointer;}#pbvContainer .mode input {cursor: pointer;}#searchBut {-webkit-box-flex: 0;-webkit-flex: none;flex: none;width: 50px;height: 32px;margin: auto;background-color: #becad7;background-image: url("https://s.pximg.net/www/js/spa/00545159b33bfc46a2dc0eff7ef34f5b.png");background-position: 50%;background-repeat: no-repeat;background-size: 16px 16px;border: none;cursor: pointer;}#itemList>div {width: 50%;display: inline-block;position: relative;}#itemList>div>div {display: inline-block;box-sizing: border-box;position: relative;width: 100%;vertical-align: bottom;}#itemList>div>div>a>div {width: 100%;height: 100%;position: relative;background: #fff;overflow: hidden;}#itemList>div>div>a>div>div.square {display: block;height: 0;width: 100%;padding-bottom: 100%;opacity: 0;}#itemList>div>div>a>div>div.image {position: absolute;top: 0;left: 0;width: 100%;height: 100%;background-size: cover;}#itemList>div>div>a>div>div.image>div.count {position: absolute;top: 4px;right: 4px;display: inline-block;margin: 0;padding: 0 6px;line-height: 19px;color: #fff;background: rgba(0,0,0,.4);border-radius: 20px;font-size: 10px;font-weight: 700;}#itemList>div>div>a>div>div.image>div.count>img {vertical-align: middle;height: 9px;margin-right: 3px;}#itemList>div>div>a>div>div.image>div.r18 {position: absolute;top: 2px;left: 4px;display: inline-block;}#itemList>div>div>a>div>div.image>div.r18>span {display: inline-block;font-size: 10px;line-height: 10px;font-weight: 700;padding: 3px 6px;border-radius: 3px;color: rgb(255, 255, 255);background: rgb(255, 64, 96);}#itemList>div>div>a>div>div.image>div.ugoku {position: absolute;top: 50%;left: 50%;-webkit-transform: translateX(-50%) translateY(-50%);transform: translateX(-50%) translateY(-50%);}#itemList>div>div>a>div>div.image>div.ugoku>img {position: absolute;top: 50%;left: 50%;height: 45%;-webkit-transform: translateX(-37.5%) translateY(-50%);transform: translateX(-37.5%) translateY(-50%);}#bookmarkAdd .aBut {margin: 5px;flex-grow: 1;}#bookmarkAdd label {margin: auto;}#bookmarkAdd .iframeContainer {width: 100%;height: 320px;margin: 16px 0;overflow: scroll;}#pbvContainer .overlayContainer {position: relative;padding: 10px 0;}#pbvContainer .overlay {position: absolute;left: -1%;width: 102%;height: 100%;z-index: 2;background: rgba(0,0,0,.2);}#bookmarkReadStrat {padding: 8px 14px;z-index: 5;}#dataOption .textareaContainer {width: 100%;height: 320px;}#optionTextarea {width: 100%;height: 100%;}#dataOption .butContainer {margin: 20px 0;padding: 0 0 10px 0;}#dataOption .aBut {margin: 8px;}';
+  }
 })();
 var pbvNav = (() => {
-  return '<a href="javascript:void(0);" id="navBookmark" class="navContents active">ブックマーク</a><a href="javascript:void(0);" id="navOption" class="navContents">オプション</a>';
+  return '<a href="javascript:void(0);" id="navBookmark" class="navContents active">ブックマーク</a><a href="javascript:void(0);" id="navTag" class="navContents">タグ</a><a href="javascript:void(0);" id="navSetInfo" class="navContents">情報収集</a><a href="javascript:void(0);" id="navOption" class="navContents">オプション</a>';
+})();
+var pbvSetImfo = (() => {
+  if (pc) {
+return '<div id="setInfo"><div class="title"><h1><a href="#" target="_blank"></a></h1><h2><a href="#" target="_blank"></a></h2></div><div class="imageContainer"><div class="mainImage"></div><div class="imageList"><div class="container" style="width: calc(152px * 14)"></div></div></div><div class="formContainer"><div class="works"><h1>作品情報</h1><div class="worksType"><div><dl><dt>作品の種類</dt><dd><ul><li><label><input type="radio" name="worksType" value="0" checked>イラスト</label></li><li><label><input type="radio" name="worksType" value="1">うごイラ</label></li><li><label><input type="radio" name="worksType" value="2">マンガ</label></li></ul></dd></dl></div></div><div class="worksImpressions"><div><dl><dt>作品の感想</dt><dd><ul class="impressionsInput smallMargin"><li><select class="selectImpressions"><option value="0">かわいい</option><option value="0">かっこいい</option><option value="0">美しい</option><option value="0">オシャレ</option><option value="0">おもしろい</option><option value="0">ためになる</option><option value="0">エッチ</option><option value="0">エロい</option></select></li><li><input type="button" value="と思った"></li><li style="flex-grow: 2;"></li><li><span>感想一覧</span></li><li><input class="input_impressionsList" type="text" value=""></li></ul><ul class="impressionsList smallMargin"><li><a href="javascript:void(0);">かわいい</a></li><li><a href="javascript:void(0);">美しい</a></li></ul></dd></dl></div></div><div class="worksReview"><div><dl><dt>作品の評価</dt><dd><ul class="smallMargin"><li><span>☆ </span><span class="spanReview">0</span></li><li style="flex-grow: 2;"></li><li><input class="plus" type="button" value="＋"></li><li><input class="minus" type="button" value="－"></li></ul></dd></dl></div></div><div class="worksTarget manga"><div><dl><dt>作品の被写体</dt><dd><ul><li><label><input type="radio" name="worksTarget" value="0" checked>人物</label></li><li><label><input type="radio" name="worksTarget" value="1">その他</label></li></ul></dd></dl></div></div><div class="worksTargetSex noneHuman"><div><dl><dt>被写体の性別</dt><dd><ul><li><label><input type="radio" name="worksTargetSex" value="0">男性</label></li><li><label><input type="radio" name="worksTargetSex" value="1">女性</label></li><li><label><input type="radio" name="worksTargetSex" value="2" checked>両方</label></li></ul></dd></dl></div></div></div><div class="tag"><h1>タグ情報</h1><div class="tagConatiner"></div></div></div></div>';
+  }
+  else {
+    return '';
+  }
 })();
 var pbvBookmarkHTML = (() => {
   if (pc) {
     return '<menu id="pbvMenu" class="flex"><div class="mode flex"><label><span>登録順</span><input type="radio" id="radioNormal" name="radioMode" checked></label><label><span>ランダム</span><input type="radio" id="radioRandom" name="radioMode"></label></div><input type="search" id="inputSearch" value="" placeholder="検索" style="flex-grow:1;"><div class="buttons flex"><a href="javascript:void(0);" id="searchBut"></a></div></menu><ul id="itemList"></ul>';
   }
-  return '<menu id="pbvMenu"><div class="flex" style="flex-wrap:nowrap;"><input type="search" id="inputSearch" value="" placeholder="検索" style="flex-grow:1;"><a href="javascript:void(0);" id="searchBut"></a></div><div class="mode flex"><label><span>登録順</span><input type="radio" id="radioNormal" name="radioMode" checked></label><label><span>ランダム</span><input type="radio" id="radioRandom" name="radioMode"></label></div></menu><span id="itemList"></span>';
+  else {
+    return '<menu id="pbvMenu"><div class="flex" style="flex-wrap:nowrap;"><input type="search" id="inputSearch" value="" placeholder="検索" style="flex-grow:1;"><a href="javascript:void(0);" id="searchBut"></a></div><div class="mode flex"><label><span>登録順</span><input type="radio" id="radioNormal" name="radioMode" checked></label><label><span>ランダム</span><input type="radio" id="radioRandom" name="radioMode"></label></div></menu><span id="itemList"></span>';
+  }
 })();
 var pbvOptionHTML = (() => {
   if (pc) {
     return '<div id="bookmarkAdd" class="overlayContainer"><div class="overlay none"></div><h2>ブックマークの読み込み</h2><div><div class="flex"><label><span>ページ数</span><input type="number" id="inputPageCount" value="1" min="1" max="9999"></label><a href="javascript:void(0);" id="jumpPageCount" class="aBut">移動</a><div style="flex-grow: 1;"></div><a href="javascript:void(0);" id="jumpOldPage" class="aBut">旧ブックマークページ</a><a href="javascript:void(0);" id="jumpNewPage" class="aBut">新ブックマークページ</a></div><iframe id="iframeBookmark" src="" width="100%" height="320px"></iframe></div><div class="mode flex"><div style="flex-grow: 1;"></div><a href="javascript:void(0);" id="bookmarkReadStrat" class="aBut" style="padding: 8px 14px;">開始</a></div></div><div id="dataOption"><h2>データの管理</h2><div class="textareaContainer"><textarea id="optionTextarea"></textarea></div><div class="butContainer flex"><a href="javascript:void(0);" id="butDataShow" class="aBut">データの表示</a><a href="javascript:void(0);" id="butDataSave" class="aBut">データの保存</a><a href="javascript:void(0);" id="butLoadWithAjax" class="aBut">データの読み込み</a><a href="javascript:void(0);" id="butGetDataWithApi" class="aBut">データの取得</a></div></div>';
   }
-  return '<div id="bookmarkAdd" class="overlayContainer"><div class="overlay none"></div><h2>ブックマークの読み込み</h2><div class="flex"><a href="javascript:void(0);" id="jumpOldPage" class="aBut">旧ブックマークページ</a><a href="javascript:void(0);" id="jumpNewPage" class="aBut">新ブックマークページ</a></div><div class="flex"><label><span>ページ数</span><input type="number" id="inputPageCount" value="1" min="1" max="9999"></label><div style="flex-grow: 1;"></div><a href="javascript:void(0);" id="jumpPageCount" class="aBut">移動</a></div><div class="iframeContainer"><iframe id="iframeBookmark" src="" width="100%" height="320px"></iframe></div><div class="mode flex"><div style="flex-grow: 1;"></div><a href="javascript:void(0);" id="bookmarkReadStrat" class="aBut" style="padding: 8px 14px;">開始</a><div style="flex-grow: 1;"></div></div></div><div id="dataOption"><h2>データの管理</h2><div class="textareaContainer"><textarea id="optionTextarea"></textarea></div><div class="butContainer flex"><a href="javascript:void(0);" id="butDataShow" class="aBut">データの表示</a><a href="javascript:void(0);" id="butDataSave" class="aBut">データの保存</a><a href="javascript:void(0);" id="butLoadWithAjax" class="aBut">データの読み込み</a><a href="javascript:void(0);" id="butGetDataWithApi" class="aBut">データの取得</a></div></div>';
+  else {
+    return '<div id="bookmarkAdd" class="overlayContainer"><div class="overlay none"></div><h2>ブックマークの読み込み</h2><div class="flex"><a href="javascript:void(0);" id="jumpOldPage" class="aBut">旧ブックマークページ</a><a href="javascript:void(0);" id="jumpNewPage" class="aBut">新ブックマークページ</a></div><div class="flex"><label><span>ページ数</span><input type="number" id="inputPageCount" value="1" min="1" max="9999"></label><div style="flex-grow: 1;"></div><a href="javascript:void(0);" id="jumpPageCount" class="aBut">移動</a></div><div class="iframeContainer"><iframe id="iframeBookmark" src="" width="100%" height="320px"></iframe></div><div class="mode flex"><div style="flex-grow: 1;"></div><a href="javascript:void(0);" id="bookmarkReadStrat" class="aBut" style="padding: 8px 14px;">開始</a><div style="flex-grow: 1;"></div></div></div><div id="dataOption"><h2>データの管理</h2><div class="textareaContainer"><textarea id="optionTextarea"></textarea></div><div class="butContainer flex"><a href="javascript:void(0);" id="butDataShow" class="aBut">データの表示</a><a href="javascript:void(0);" id="butDataSave" class="aBut">データの保存</a><a href="javascript:void(0);" id="butLoadWithAjax" class="aBut">データの読み込み</a><a href="javascript:void(0);" id="butGetDataWithApi" class="aBut">データの取得</a></div></div>';
+  }
 })();
 
 var page = 'bookmark';
+var pageNameList = [
+  'bookmark',
+  'tag',
+  'setInfo',
+  'option'
+];
 
 var bookmarkData = [];
 var randomData = [];
@@ -476,7 +496,7 @@ var container;
 
 // scroll
 window.onscroll = () => {
-  if (page == 'bookmark') {
+  if (page == pageNameList[0]) {
     appendItemToBottom();
   }
 };
@@ -527,35 +547,42 @@ function resetHTML() {
   nav.innerHTML = pbvNav;
 
   // nav event
-  var navBookmark = document.getElementById('navBookmark');
-  var navOption = document.getElementById('navOption');
-  navBookmark.addEventListener('click', () => {
-    if (page == 'bookmark') return;
-    navBookmark.classList.add('active');
-    navOption.classList.remove('active');
-    page = 'bookmark';
-    changePage();
-    setEvent();
-  }, false);
-  navOption.addEventListener('click', () => {
-    if (page == 'option') return;
-    navOption.classList.add('active');
-    navBookmark.classList.remove('active');
-    page = 'option';
-    changePage();
-    setEvent();
-  }, false);
+  var navList = document.querySelectorAll('#pbvNav a');
+  navList = Array.from(navList);
+
+  navList.forEach((e, i) => {
+    e.addEventListener('click', () => {
+      if (page == pageNameList[i]) return;
+      e.classList.add('active');
+      navList.forEach(e2 => {
+        e2.classList.remove('active');
+      });
+      e.classList.add('active');
+      page = pageNameList[i];
+      changePage();
+      setEvent();
+    }, false);
+  });
 }
 
 function changePage() {
-  if (page == 'bookmark') {
+  if (page == pageNameList[0]) {
     container.innerHTML = pbvBookmarkHTML;
 
     bookmarkViewMode = 'normal';
     loadCount = 0;
     addItem();
   }
-  else {
+  else if (page == pageNameList[1]) {
+    container.innerHTML = null;
+  }
+  else if (page == pageNameList[2]) {
+    container.innerHTML = pbvSetImfo;
+
+    // 仮
+    creatImageElement(chooseRandamElement(bookmarkData).id);
+  }
+  else if (page == pageNameList[3]) {
     container.innerHTML = pbvOptionHTML;
 
     bookmarkPage = '';
@@ -568,12 +595,14 @@ function changePage() {
     "「データの読み込み」　ここに書かれたURLのファイル内容を上書き保存します。（dropboxの共有URLでも可）\r\n\r\n" +
     "「データの取得」　APIを用いてデータを取得します。取得後、上書き または 情報の更新ができます。 ※ストレージに保存はしません。\r\n\r\n";
   }
-
+  else {
+    container.innerHTML = null;
+  }
 };
 
 var iframeTimer;
 function setEvent() {
-  if (page == 'bookmark') {
+  if (page == pageNameList[0]) {
     // iframeTimer
     clearInterval(iframeTimer);
 
@@ -617,7 +646,19 @@ function setEvent() {
       .then(addItem());
     }, false);
   }
-  else {
+  else if (page == pageNameList[1]) {
+
+  }
+  else if (page == pageNameList[2]) {
+    var element;
+
+    // mainImage
+    element = document.querySelector('.imageContainer .mainImage img');
+    element.addEventListener('click', () => {
+      onClickMainImage();
+    }, false);
+  }
+  else if (page == pageNameList[3]) {
     // iframeTimer
     iframeTimer = setInterval(() => {
       changeBookmarkAddPageCount();
@@ -711,6 +752,9 @@ function setEvent() {
       getDataWithApi();
     }, false);
   }
+  else {
+
+  }
 };
 
 function loadToLocalStorage() {
@@ -794,6 +838,10 @@ function formatTime(date, format) {
 function zeroPadding(str, count) {
   var herd = new Array(count + 1).join('0');
   return (herd + str).slice(0 - count);
+}
+
+function chooseRandamElement(array) {
+  return array[Math.floor(Math.random() * array.length)];
 }
 
 resetHTML();
@@ -1053,6 +1101,230 @@ function createSearchData() {
 addItem();
 createRandomData();
 
+/* setInfo */
+
+function creatImageElement(id) {
+  var target = bookmarkData.find((bookmark) => {
+    return (bookmark.id == id);
+  });
+
+  var option = {
+    'id': id,
+    'title': target.title,
+    'user': userData[target.userId].name,
+    'image': target.img,
+    'count': target.count
+  }
+
+  // タイトル
+  var a = document.querySelector('#setInfo .title h1 a');
+  a.textContent = option.title;
+  a.href = 'https://www.pixiv.net/artworks/' + target.id;
+
+  a = document.querySelector('#setInfo .title h2 a');
+  a.textContent = option.user;
+  a.href = 'https://www.pixiv.net/member.php?id=' + target.userId;
+
+  // メインイメージ
+  var mainImageC = document.querySelector('#setInfo .imageContainer .mainImage');
+  mainImageC.innerHTML = null;
+  var mainImage = document.createElement('img');
+  mainImage.src = 'https://i.pximg.net/img-master/img/' + option.image + '/' + option.id + '_p0_master1200.jpg';
+  mainImageC.appendChild(mainImage);
+
+  // イメージリスト
+  var imageList = document.querySelector('#setInfo .imageContainer .imageList');
+  if (option.count > 1) {
+    imageList.style.display = null;
+
+    var imageListContainer = document.querySelector('#setInfo .imageContainer .imageList .container');
+    imageListContainer.innerHTML = null;
+    for (var i = 0; i < option.count; i++) {
+      var div = document.createElement('div');
+      div.style.backgroundImage = 'url(https://i.pximg.net/c/250x250_80_a2/img-master/img/' + option.image + '/' + option.id + '_p' + i + '_master1200.jpg)';
+      // クリックイベント
+      ((i_) => {
+        div.addEventListener('click', () => {
+          onClickImageList(i_, option);
+        }, false);
+      })(i);
+      // 選択状態
+      if (i == 0) {
+        div.classList.add('selected');
+      }
+      imageListContainer.appendChild(div);
+    }
+
+    // イメージリストのwidth変更
+    imageListContainer.style.width = 'calc(152px * ' + option.count +')';
+  }
+  else {
+    imageList.style.display = 'none';
+  }
+
+
+  // タグ
+  createTagList(target);
+}
+
+function onClickMainImage() {
+  var mainImage = document.querySelector('.imageContainer .mainImage img');
+  mainImage.classList.toggle('large');
+}
+
+function onClickImageList(index, option) {
+  // 画像変更
+  var mainImage = document.querySelector('#setInfo .imageContainer .mainImage img');
+  var url = 'https://i.pximg.net/img-master/img/' + option.image +'/' + option.id + '_p' + index + '_master1200.jpg';
+  mainImage.src = url;
+
+  // イメージリスト スクロール
+  scrollImageList(index);
+
+  // イメージリスト 選択状態スタイル適応
+  changeSelectedImageList(index);
+}
+
+function scrollImageList(index) {
+  var imageWidth = 152;
+  var moveElementDataMargin = 80;
+
+  var imageList = document.querySelector('#setInfo .imageList');
+  var moveElement = document.querySelector('#setInfo .imageList .container');
+  var imageListData = imageList.getBoundingClientRect();
+  var moveElementData = moveElement.getBoundingClientRect();
+
+  var x = (imageWidth * index + moveElementDataMargin) - (imageListData.width / 2) + (imageWidth / 2);
+
+  try {
+    imageList.scrollTo({
+      "left": x,
+      "behavior": "smooth"
+    });
+  } catch (e) {
+    imageList.scrollTo(x, 0);
+  }
+}
+
+function changeSelectedImageList(index) {
+  var itemList = document.querySelectorAll('#setInfo .imageList .container div');
+  itemList = Array.from(itemList);
+  itemList.forEach(e => {
+    e.classList.remove('selected');
+  });
+  itemList[index].classList.add('selected');
+}
+
+
+function createTagList(bookmark) {
+  var optionIndex = 2;
+
+  var parentElement = document.querySelector('#setInfo .tag .tagConatiner');
+  parentElement.innerHTML = null;
+  var fragment = document.createDocumentFragment();
+  for (var i = 0; i < bookmark.tags.length; i++) {
+    var dl = document.createElement('dl');
+    dl.innerHTML = (() => {
+      return '<dt>' +
+      '<span class="' + chooseTagSpanClassName(optionIndex) + '">' + bookmark.tags[i] + '</span>' +
+      '</dt>' +
+      '<dd>' +
+      '<select class="selemct_tagType">' +
+      '<option ' + checkSelected(0, optionIndex) + '>作品名</option>' +
+      '<option ' + checkSelected(1, optionIndex) + '>キャラクター名</option>' +
+      '<option ' + checkSelected(2, optionIndex) + ' selected>その他</option>' +
+      '<option ' + checkSelected(3, optionIndex) + '>users入り</option>' +
+      '</select>' +
+      '</dd>';
+    })();
+
+    // select changeイベント
+    ((i_) => {
+      setEventTagTypeSelectChange(dl, i_);
+    })(i);
+
+    // select changeイベント
+    ((i_) => {
+      if (pc) {
+        var select = dl.querySelector('select');
+        //Firefox
+        if(window.addEventListener){
+          select.addEventListener('DOMMouseScroll', function(e){
+            e.preventDefault();
+            onScrollTagTypeSelect(i_, e.detail);
+          }, false);
+        }
+        //IE
+        if(document.attachEvent){
+          select.attachEvent('onmousewheel', function(e){
+            e.preventDefault();
+            onScrollTagTypeSelect(i_, e.wheelDelta);
+          });
+        }
+        //Chrome
+        select.onmousewheel = function(e){
+          e.preventDefault();
+          onScrollTagTypeSelect(i_, e.wheelDelta);
+        }
+      }
+    })(i);
+
+  fragment.appendChild(dl);
+  }
+  parentElement.appendChild(fragment);
+}
+
+function checkSelected(thisIndex, optionIndex) {
+  if (thisIndex == optionIndex) return 'selected';
+  return '';
+}
+
+function setEventTagTypeSelectChange(dl, index) {
+  var select = dl.querySelector('select');
+  select.addEventListener('change', () => {
+    var this_ = document.getElementsByClassName('selemct_tagType')[index];
+    var optionIndex = this_.options.selectedIndex;
+
+    changeTagSpanColor(index, optionIndex);
+  }, false);
+}
+
+function onScrollTagTypeSelect(index, scroll) {
+  var this_ = document.getElementsByClassName('selemct_tagType')[index];
+  var optionIndex = this_.options.selectedIndex;
+  var optionLength = this_.options.length;
+  // 増やす
+  if (scroll < 0) {
+    optionIndex++;
+    if (optionIndex >= optionLength) {
+      optionIndex--;
+    }
+  }
+  // 減らす
+  else if (scroll > 0) {
+    optionIndex--;
+    if (optionIndex < 0) {
+      optionIndex = 0;
+    }
+  }
+
+  this_.options.selectedIndex = optionIndex;
+
+  changeTagSpanColor(index, optionIndex);
+}
+
+function changeTagSpanColor(eIndex, oIndex) {
+  var target = document.querySelectorAll('.tagConatiner span')[eIndex];
+  target.className = chooseTagSpanClassName(oIndex);
+}
+
+function chooseTagSpanClassName(oIndex) {
+  if (oIndex == 0) return 'typeTitle';
+  else if (oIndex == 1) return 'typeCharacter';
+  else if (oIndex == 3) return 'typeUsers';
+  else return '';
+}
+
 /* option */
 
 function bookmarkAddPageChange() {
@@ -1081,7 +1353,14 @@ function bookmarkAddPageChange() {
 
 function changeBookmarkAddPageCount() {
   var iframe = document.getElementById('iframeBookmark');
-  var url = iframe.contentWindow.location.href;
+
+  var url;
+  try {
+    url = iframe.contentWindow.location.href;
+  } catch (e) {
+    clearInterval(iframeTimer);
+    return false;
+  }
 
   if (url == 'about:blank') return false;
 
@@ -1293,7 +1572,7 @@ function getDataWithApi() {
   var confirm = window.confirm('データを取得しますか。');
   if (!confirm) return;
 
-  var myId = location.search.match(/id=(\w+)/)[1];
+  var myId = location.href.match(/\/(\d+)\//)[1];
   getData('https://www.pixiv.net/ajax/user/' + myId + '/illusts/bookmarks?tag=&offset=0&limit=1&rest=show')
   .then(res => {
     return new Promise(resolve => {
