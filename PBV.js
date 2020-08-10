@@ -506,8 +506,8 @@ window.onscroll = () => {
 function resetHTML() {
   if (pc) {
     // remove
-    var removeDiv = document.querySelectorAll('#root>div:nth-child(2)>div>div:nth-child(2)>div');
-    for (var i = 0; i < removeDiv.length; i++) {
+    var removeDiv = document.querySelectorAll('#root>div:nth-child(3)>div>div:nth-child(2)>div');
+    for (var i = 1; i < removeDiv.length; i++) {
       removeDiv[i].parentNode.removeChild(removeDiv[i]);
     }
 
@@ -525,7 +525,7 @@ function resetHTML() {
     container.style.margin = '0 auto 96px';
     container.style.maxWidth = '1224px';
     container.innerHTML = pbvBookmarkHTML;
-    document.querySelector('#root>div:nth-child(2)>div>div:nth-child(2)').appendChild(container);
+    document.querySelector('#root>div:nth-child(3)>div>div:nth-child(2)').appendChild(container);
   }
   else {
     // style
@@ -537,7 +537,7 @@ function resetHTML() {
     document.head.appendChild(addStyle);
 
     // content
-    container = document.querySelector('#contents>div>div:nth-child(2)>div:nth-child(5)');
+    container = document.querySelector('#spa-contents>div:nth-child(4)>div:nth-child(5)');
     container.id = 'pbvContainer';
     container.innerHTML = pbvBookmarkHTML;
   }
