@@ -440,7 +440,7 @@ return '#pbvContainer .flex{display:flex}#pbvContainer .none{display:none}#pbvCo
   }
 })();
 var pbvNav = (() => {
-  return '<a href="javascript:void(0);" id="navBookmark" class="navContents active">ブックマーク</a><a href="javascript:void(0);" id="navTag" class="navContents">タグ</a><a href="javascript:void(0);" id="navSetInfo" class="navContents">情報収集</a><a href="javascript:void(0);" id="navOption" class="navContents">オプション</a>';
+  return '<a href="javascript:void(0);" id="navBookmark" class="navContents active">ブックマーク</a><a href="javascript:void(0);" id="navTag" class="navContents">タグ</a><a href="javascript:void(0);" id="navSetInfo" class="navContents">情報収集</a><a href="javascript:void(0);" id="navSlide" class="navContents">スライドショー</a><a href="javascript:void(0);" id="navOption" class="navContents">オプション</a>';
 })();
 var pbvSetImfo = (() => {
   if (pc) {
@@ -525,7 +525,11 @@ function resetHTML() {
     container.style.margin = '0 auto 96px';
     container.style.maxWidth = '1224px';
     container.innerHTML = pbvBookmarkHTML;
-    document.querySelector('#root>div:nth-child(3)>div>div:nth-child(2)').appendChild(container);
+    var con = document.querySelector('#root>div:nth-child(2)>div:nth-child(2)>div>div:nth-child(2)');
+    con.appendChild(container);
+
+    con.removeChild(con.firstElementChild);
+    con.removeChild(con.firstElementChild);
   }
   else {
     // style
@@ -583,6 +587,10 @@ function changePage() {
     creatImageElement(chooseRandamElement(bookmarkData).id);
   }
   else if (page == pageNameList[3]) {
+    document.body.innerHTML = '<div id="slide"></div>';
+
+  }
+  else if (page == pageNameList[4]) {
     container.innerHTML = pbvOptionHTML;
 
     bookmarkPage = '';
@@ -659,6 +667,9 @@ function setEvent() {
     }, false);
   }
   else if (page == pageNameList[3]) {
+
+  }
+  else if (page == pageNameList[4]) {
     // iframeTimer
     iframeTimer = setInterval(() => {
       changeBookmarkAddPageCount();
