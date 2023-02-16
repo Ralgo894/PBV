@@ -5,7 +5,7 @@
     const imageLoadLimit = 20;
     let imageLoadCount = 0;
 
-    const columnCount = 6;
+    const columnCount = 3;
     const gridContainer = document.body;
 
     const getImageUrl = (e=null, i=0) => {
@@ -251,7 +251,7 @@
         document.body.setAttribute('class', 'gridContainer');
 
         const newStyle = document.createElement('style');
-        newStyle.textContent = '* {margin: 0;padding: 0;}body {background-color: black;}.gridContainer {--gap: 18px;width: calc(100% - var(--gap)*2);padding: var(--gap);display: grid;grid-template-columns: repeat(6, 1fr);gap: var(--gap);}.imgContainer {--img-height: 320px;height: var(--img-height);font-size: 32px;background-repeat: no-repeat;background-position: center;background-size: cover;grid-row: auto;grid-column: auto;border-radius: 10px;}.w1h2, .w2h2 {height: calc(var(--img-height)*2 + var(--gap));}';
+        newStyle.textContent = '* {margin: 0;padding: 0;}body {background-color: black;}.gridContainer {--gap: 18px;width: calc(100% - var(--gap)*2);padding: var(--gap);display: grid;grid-template-columns: repeat(6, 1fr);gap: var(--gap);}.imgContainer {--img-height: 560px;height: var(--img-height);font-size: 32px;background-repeat: no-repeat;background-position: center;background-size: cover;grid-row: auto;grid-column: auto;border-radius: 10px;}.w1h2, .w2h2 {height: calc(var(--img-height)*2 + var(--gap));}';
         document.head.appendChild(newStyle);
 
         gridContainer.style.gridTemplateColumns = `repeat(${columnCount}, 1fr)`;
